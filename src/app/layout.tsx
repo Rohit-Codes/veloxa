@@ -1,9 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"], display: 'swap' });
+const inter = Inter({ 
+  subsets: ["latin"], 
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  display: 'swap',
+  variable: '--font-dm-sans',
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -44,7 +54,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.className} min-h-screen bg-[#F1EFE8] text-[#2C2C2A] antialiased flex flex-col`}
+        className={`${inter.variable} ${dmSans.variable} font-sans min-h-screen bg-[#F1EFE8] text-[#2C2C2A] antialiased flex flex-col`}
       >
         <a 
           href="#main-content" 

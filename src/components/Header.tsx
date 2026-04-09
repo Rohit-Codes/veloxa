@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronRight } from "lucide-react";
 
 export default function Header() {
@@ -23,29 +24,35 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4 pointer-events-none">
-        <div 
-          className={`pointer-events-auto transition-all duration-500 rounded-full px-6 py-3 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/40 ${
-            isScrolled 
-              ? "w-full max-w-4xl bg-white/70 backdrop-blur-xl" 
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4 pointer-events-none">
+        <div
+          className={`pointer-events-auto transition-all duration-500 rounded-full px-5 py-2 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/40 ${
+            isScrolled
+              ? "w-full max-w-4xl bg-white/70 backdrop-blur-xl"
               : "w-full max-w-6xl bg-white/40 backdrop-blur-md"
           }`}
         >
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl md:text-2xl font-black tracking-tighter text-[#0F2744] flex items-center gap-1"
             aria-label="Veloxa - Website Development Agency"
+            className="flex items-center"
           >
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#185FA5] to-[#1D9E75] flex items-center justify-center text-white text-lg rounded-tl-sm transform rotate-12 transition-transform hover:rotate-0">
-              V
+            <div className="relative h-13 w-28 md:w-40">
+              <Image
+                src="/images/logo_new.png"
+                alt="Veloxa Logo"
+                fill
+                sizes="(max-width: 768px) 112px, 144px"
+                className="object-contain object-left [mix-blend-mode:multiply]"
+                priority
+              />
             </div>
-            <span className="ml-1">eloxa.</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2">
-            <ul className="flex items-center space-x-1 bg-white/40 rounded-full px-2 py-1 border border-white/60">
+            <ul className="flex items-center space-x-1 rounded-full px-2 py-1 ">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -67,7 +74,8 @@ export default function Header() {
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10 flex items-center gap-2 text-sm">
-                Start Project <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Start Project{" "}
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
           </div>
@@ -86,7 +94,9 @@ export default function Header() {
       {/* Mobile Overlay Menu */}
       <div
         className={`fixed inset-0 z-[60] bg-[#F1EFE8]/95 backdrop-blur-xl transition-all duration-500 ease-out flex flex-col justify-center px-8 ${
-          mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+          mobileMenuOpen
+            ? "opacity-100 visible"
+            : "opacity-0 invisible pointer-events-none"
         }`}
       >
         <button
@@ -95,14 +105,21 @@ export default function Header() {
         >
           <X size={24} />
         </button>
-        
+
         <div className="text-center">
-           <h2 className="text-[#0F2744] font-black tracking-tighter text-4xl mb-12">Menu.</h2>
+          <h2 className="text-[#0F2744] font-black tracking-tighter text-4xl mb-12">
+            Menu.
+          </h2>
         </div>
 
         <nav className="flex flex-col space-y-6">
-          <Link href="/" className="text-3xl font-bold text-[#0F2744] border-b border-[#0F2744]/10 pb-4 flex justify-between items-center group" onClick={() => setMobileMenuOpen(false)}>
-            Home <ChevronRight className="opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all text-[#185FA5]" />
+          <Link
+            href="/"
+            className="text-3xl font-bold text-[#0F2744] border-b border-[#0F2744]/10 pb-4 flex justify-between items-center group"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Home{" "}
+            <ChevronRight className="opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all text-[#185FA5]" />
           </Link>
           {navLinks.map((link) => (
             <Link
@@ -111,7 +128,8 @@ export default function Header() {
               className="text-3xl font-bold text-[#0F2744] border-b border-[#0F2744]/10 pb-4 flex justify-between items-center group"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {link.name} <ChevronRight className="opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all text-[#185FA5]" />
+              {link.name}{" "}
+              <ChevronRight className="opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all text-[#185FA5]" />
             </Link>
           ))}
           <Link
