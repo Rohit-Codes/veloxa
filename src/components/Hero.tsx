@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Zap, CheckCircle2, Star } from "lucide-react";
+import { ArrowRight, Sparkles, Star, GitBranch, Terminal } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
@@ -20,32 +20,61 @@ export default function Hero() {
       {/* Modern High-End Grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(#0F2744 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
 
-      {/* --- ANIMATED OBJECTS (Hidden on Mobile) --- */}
+      {/* --- ANIMATED CODING OBJECTS (Hidden on Mobile) --- */}
+      {/* Sliding beam lines */}
       <div className="hidden md:block absolute top-[18%] left-0 w-48 h-[2px] bg-gradient-to-r from-transparent via-[#185FA5] to-transparent blur-[1px] opacity-60 animate-[slide-x_12s_ease-in-out_infinite_alternate]"></div>
       <div className="hidden md:block absolute top-0 right-[22%] w-[2px] h-48 bg-gradient-to-b from-transparent via-[#1D9E75] to-transparent blur-[1px] opacity-60 animate-[slide-y_16s_ease-in-out_infinite_alternate]"></div>
-      <div className="hidden md:block absolute bottom-[30%] w-12 h-12 rounded-full bg-gradient-to-br from-[#185FA5]/40 to-transparent border border-white/50 backdrop-blur-md shadow-lg animate-[pan-x_20s_linear_infinite_alternate]"></div>
-      <div className="hidden md:block absolute left-[25%] w-16 h-16 border-2 border-[#185FA5]/20 rounded-xl transform rotate-12 animate-[pan-y_25s_linear_infinite_alternate]"></div>
 
-      {/* Floating Glass Cards (Hidden on Mobile and Tablet to prevent overlap) */}
-      <div className="absolute top-[15%] left-[2%] xl:left-[8%] hidden xl:flex items-center gap-3 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] animate-[float_6s_ease-in-out_infinite] z-0">
+      {/* Floating HTML tag — top-left background */}
+      <div className="hidden lg:flex absolute top-[28%] left-[4%] items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#185FA5]/8 border border-[#185FA5]/15 backdrop-blur-sm text-[#185FA5]/50 font-mono text-xs animate-[float_14s_ease-in-out_infinite] select-none pointer-events-none">
+        <span className="text-[#1D9E75]/60">&lt;</span>
+        <span>div</span>
+        <span className="text-[#1D9E75]/60">/&gt;</span>
+      </div>
+
+      {/* Floating curly braces — bottom-left background */}
+      <div className="hidden lg:flex absolute bottom-[25%] left-[6%] items-center justify-center w-14 h-14 rounded-2xl bg-white/40 border border-[#185FA5]/12 backdrop-blur-md shadow-sm text-[#185FA5]/40 font-mono text-2xl font-black animate-[pan-y_28s_linear_infinite_alternate] select-none pointer-events-none">
+        {'{ }'}
+      </div>
+
+      {/* Rotating code slash — top-right background */}
+      <div className="hidden lg:flex absolute top-[12%] right-[5%] items-center justify-center w-12 h-12 rounded-xl bg-[#1D9E75]/8 border border-[#1D9E75]/15 backdrop-blur-sm text-[#1D9E75]/40 font-mono text-xl font-black animate-[spin-slow_20s_linear_infinite] select-none pointer-events-none">
+        /&gt;
+      </div>
+
+      {/* Terminal prompt dots — bottom-right background */}
+      <div className="hidden lg:flex absolute bottom-[18%] right-[4%] flex-col gap-1 px-3 py-2 rounded-lg bg-[#0F2744]/6 border border-[#0F2744]/10 backdrop-blur-sm animate-[float_18s_ease-in-out_infinite_reverse] select-none pointer-events-none">
+        <div className="flex gap-1">
+          <span className="w-2 h-2 rounded-full bg-[#FF5F57]/50"></span>
+          <span className="w-2 h-2 rounded-full bg-[#FFBD2E]/50"></span>
+          <span className="w-2 h-2 rounded-full bg-[#28C840]/50"></span>
+        </div>
+        <span className="font-mono text-[10px] text-[#185FA5]/50">$ npm run dev</span>
+      </div>
+
+      {/* Floating Glass Card — Build (top left) */}
+      <div className="absolute top-[15%] left-[2%] xl:left-[7%] hidden xl:flex items-center gap-3 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.05)] animate-[float_6s_ease-in-out_infinite] z-0">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0F2744]/8 text-[#0F2744]">
+          <Terminal size={18} />
+        </div>
+        <div>
+          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">Build</p>
+          <p className="text-base font-black text-[#1D9E75] font-mono">✓ 1.2s</p>
+        </div>
+      </div>
+
+      {/* Floating Glass Card — Git Deploy (right) */}
+      <div className="absolute top-[45%] right-[2%] xl:right-[7%] hidden xl:flex items-center gap-3 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.05)] animate-[float_8s_ease-in-out_infinite_reverse] z-0">
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1D9E75]/10 text-[#1D9E75]">
-          <Zap size={20} className="fill-current" />
+          <GitBranch size={20} />
         </div>
         <div>
-          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">LCP Score</p>
-          <p className="text-base font-black text-[#0F2744]">0.8s</p>
+          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">Deployed</p>
+          <p className="text-base font-black text-[#0F2744]">main ✓</p>
         </div>
       </div>
 
-      <div className="absolute top-[45%] right-[2%] xl:right-[8%] hidden xl:flex items-center gap-3 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] animate-[float_8s_ease-in-out_infinite_reverse] z-0">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#185FA5]/10 text-[#185FA5]">
-          <CheckCircle2 size={20} />
-        </div>
-        <div>
-          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">SEO Health</p>
-          <p className="text-base font-black text-[#0F2744]">100/100</p>
-        </div>
-      </div>
+
 
       {/* --- ALL CONTENT WRAPPER FOR VERTICAL CENTERING --- */}
       <div className="relative z-10 w-full flex flex-col items-center mt-4 sm:mt-10">
@@ -168,13 +197,17 @@ export default function Hero() {
           0% { transform: translateY(0vh); }
           100% { transform: translateY(60vh); }
         }
-        @keyframes pan-x {
-          0% { left: -10%; transform: rotate(0deg); }
-          100% { left: 110%; transform: rotate(360deg); }
-        }
         @keyframes pan-y {
           0% { top: -10%; transform: rotate(12deg); }
           100% { top: 110%; transform: rotate(180deg); }
+        }
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 0.4; box-shadow: 0 0 8px rgba(24, 95, 165, 0.2); }
+          50% { opacity: 0.8; box-shadow: 0 0 20px rgba(24, 95, 165, 0.5); }
         }
       `}} />
     </section>
