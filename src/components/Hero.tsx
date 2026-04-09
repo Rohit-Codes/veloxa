@@ -1,0 +1,182 @@
+"use client";
+import Link from "next/link";
+import { ArrowRight, Sparkles, Zap, CheckCircle2, Star } from "lucide-react";
+import { useEffect, useState } from "react";
+
+export default function Hero() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <section className="relative w-full flex items-center justify-center overflow-hidden bg-[#F1EFE8] pt-28 pb-12 sm:pt-32">
+      {/* Aurora Ambient Orbs */}
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#185FA5]/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#1D9E75]/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
+      <div className="absolute top-[40%] left-[40%] w-[30%] h-[30%] rounded-full bg-[#185FA5]/10 blur-[100px] pointer-events-none mix-blend-multiply"></div>
+
+      {/* Modern High-End Grid */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(#0F2744 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+
+      {/* --- ANIMATED OBJECTS (Hidden on Mobile) --- */}
+      <div className="hidden md:block absolute top-[18%] left-0 w-48 h-[2px] bg-gradient-to-r from-transparent via-[#185FA5] to-transparent blur-[1px] opacity-60 animate-[slide-x_12s_ease-in-out_infinite_alternate]"></div>
+      <div className="hidden md:block absolute top-0 right-[22%] w-[2px] h-48 bg-gradient-to-b from-transparent via-[#1D9E75] to-transparent blur-[1px] opacity-60 animate-[slide-y_16s_ease-in-out_infinite_alternate]"></div>
+      <div className="hidden md:block absolute bottom-[30%] w-12 h-12 rounded-full bg-gradient-to-br from-[#185FA5]/40 to-transparent border border-white/50 backdrop-blur-md shadow-lg animate-[pan-x_20s_linear_infinite_alternate]"></div>
+      <div className="hidden md:block absolute left-[25%] w-16 h-16 border-2 border-[#185FA5]/20 rounded-xl transform rotate-12 animate-[pan-y_25s_linear_infinite_alternate]"></div>
+
+      {/* Floating Glass Cards (Hidden on Mobile and Tablet to prevent overlap) */}
+      <div className="absolute top-[15%] left-[2%] xl:left-[8%] hidden xl:flex items-center gap-3 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] animate-[float_6s_ease-in-out_infinite] z-0">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1D9E75]/10 text-[#1D9E75]">
+          <Zap size={20} className="fill-current" />
+        </div>
+        <div>
+          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">LCP Score</p>
+          <p className="text-base font-black text-[#0F2744]">0.8s</p>
+        </div>
+      </div>
+
+      <div className="absolute top-[45%] right-[2%] xl:right-[8%] hidden xl:flex items-center gap-3 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] animate-[float_8s_ease-in-out_infinite_reverse] z-0">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#185FA5]/10 text-[#185FA5]">
+          <CheckCircle2 size={20} />
+        </div>
+        <div>
+          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">SEO Health</p>
+          <p className="text-base font-black text-[#0F2744]">100/100</p>
+        </div>
+      </div>
+
+      {/* --- ALL CONTENT WRAPPER FOR VERTICAL CENTERING --- */}
+      <div className="relative z-10 w-full flex flex-col items-center mt-4 sm:mt-10">
+        
+        {/* MAIN HERO CONTENT */}
+        <div className="w-full max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+          {/* Modern Pill Tagline */}
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm opacity-0 animate-[fade-in_1s_ease-out_forwards]">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
+            </span>
+            <span className="text-[#0F2744] font-medium text-[11px] sm:text-xs tracking-wide">
+              From idea to online — fast.
+            </span>
+          </div>
+
+          {/* Scaled-down Exaggerated Typography H1 */}
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6 opacity-0 animate-[fade-in-up_1s_ease-out_0.2s_forwards]">
+            Transform Your Vision Into a {" "}
+            <span className="relative inline-block whitespace-nowrap">
+              <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
+              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#185FA5] via-[#1D9E75] to-[#185FA5] bg-[length:200%_auto] animate-[gradient_4s_linear_infinite]">
+                Stunning Website
+              </span>
+            </span>
+          </h1>
+
+          {/* Much Shorter, Smaller Supporting Paragraph */}
+          <p className="max-w-xl text-sm sm:text-base text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance opacity-0 animate-[fade-in-up_1s_ease-out_0.4s_forwards] px-2 sm:px-0">
+            We build high-performance, fast-loading Next.js websites that effortlessly convert your visitors into loyal customers.
+          </p>
+
+          {/* Magnetic/Modern CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-12 sm:mb-16 opacity-0 animate-[fade-in-up_1s_ease-out_0.6s_forwards]">
+            <Link
+              href="/contact"
+              className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.5)] text-sm"
+            >
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="relative z-10 flex items-center gap-2">
+                <Sparkles size={16} />
+                Discuss Your Ideas
+              </span>
+            </Link>
+            <Link
+              href="/services"
+              className="group w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-white/50 backdrop-blur-md border border-[#0F2744]/10 hover:border-[#0F2744]/30 font-bold rounded-full text-[#0F2744] transition-all duration-300 hover:bg-white hover:shadow-lg text-sm"
+            >
+              View Services
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 duration-300" />
+            </Link>
+          </div>
+        </div>
+
+        {/* --- TRUST & RATING ELEMENTS --- (Now positioned directly under buttons) */}
+        <div className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-8 sm:pt-10 border-t border-[#0F2744]/5 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 opacity-0 animate-[fade-in-up_1s_ease-out_0.8s_forwards]">
+          
+          {/* Ratings Block */}
+          <div className="flex flex-col items-center md:items-start gap-2 sm:gap-3">
+            <div className="flex -space-x-2">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div key={i} className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-[#F1EFE8] bg-[#0F2744] overflow-hidden relative shadow-sm">
+                  {/* Simulated Avatars using gradients */}
+                  <div className={`absolute inset-0 bg-gradient-to-br from-white/20 to-transparent mix-blend-overlay ${i % 2 === 0 ? 'bg-blue-400' : 'bg-teal-400'}`}></div>
+                  <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" className="w-full h-full object-cover opacity-80" />
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col text-center md:text-left text-[13px] sm:text-sm text-[#2C2C2A]/80 font-medium">
+              <div className="flex items-center gap-1.5 justify-center md:justify-start text-amber-500">
+                <Star className="w-3.5 h-3.5 fill-current" />
+                <Star className="w-3.5 h-3.5 fill-current" />
+                <Star className="w-3.5 h-3.5 fill-current" />
+                <Star className="w-3.5 h-3.5 fill-current" />
+                <Star className="w-3.5 h-3.5 fill-current" />
+                <span className="text-[#0F2744] font-bold ml-1">5.0</span>
+              </div>
+              <span>From 500+ satisfied clients</span>
+            </div>
+          </div>
+
+          {/* Trusted By Logos (Faux Typography Logos) */}
+          <div className="flex flex-col items-center md:items-end gap-2 sm:gap-3 text-[#2C2C2A]/60 text-sm font-medium w-full md:w-auto">
+             <p className="tracking-widest uppercase text-[10px] sm:text-xs">Trusted by innovative teams</p>
+             <div className="flex items-center justify-center flex-wrap gap-4 sm:gap-6 md:gap-8 opacity-60 grayscale">
+               <span className="font-serif italic font-bold text-base sm:text-lg">Vortex.</span>
+               <span className="font-sans font-black tracking-tighter text-lg sm:text-xl">NEXA</span>
+               <span className="font-mono font-bold text-base sm:text-lg">&lt;Q/&gt;Labs</span>
+             </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Custom CSS for Animations */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+          100% { transform: translateY(0px); }
+        }
+        @keyframes gradient {
+          0% { background-position: 0% center; }
+          100% { background-position: 200% center; }
+        }
+        @keyframes slide-x {
+          0% { transform: translateX(0vw); }
+          100% { transform: translateX(80vw); }
+        }
+        @keyframes slide-y {
+          0% { transform: translateY(0vh); }
+          100% { transform: translateY(60vh); }
+        }
+        @keyframes pan-x {
+          0% { left: -10%; transform: rotate(0deg); }
+          100% { left: 110%; transform: rotate(360deg); }
+        }
+        @keyframes pan-y {
+          0% { top: -10%; transform: rotate(12deg); }
+          100% { top: 110%; transform: rotate(180deg); }
+        }
+      `}} />
+    </section>
+  );
+}
