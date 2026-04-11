@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles, Star, GitBranch, Terminal } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -111,7 +112,7 @@ export default function Hero() {
           {/* Magnetic/Modern CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-12 sm:mb-16 opacity-0 animate-[fade-in-up_1s_ease-out_0.6s_forwards]">
             <Link
-              href="/contact"
+              href="#contact"
               className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.5)] text-sm"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -133,14 +134,19 @@ export default function Hero() {
         {/* --- TRUST & RATING ELEMENTS --- (Now positioned directly under buttons) */}
         <div className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-8 sm:pt-10 border-t border-[#0F2744]/5 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 opacity-0 animate-[fade-in-up_1s_ease-out_0.8s_forwards]">
           
-          {/* Ratings Block */}
           <div className="flex flex-col items-center md:items-start gap-2 sm:gap-3">
             <div className="flex -space-x-2">
               {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-[#F1EFE8] bg-[#0F2744] overflow-hidden relative shadow-sm">
                   {/* Simulated Avatars using gradients */}
                   <div className={`absolute inset-0 bg-gradient-to-br from-white/20 to-transparent mix-blend-overlay ${i % 2 === 0 ? 'bg-blue-400' : 'bg-teal-400'}`}></div>
-                  <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" className="w-full h-full object-cover opacity-80" />
+                  <Image 
+                    src={`https://i.pravatar.cc/100?img=${i + 10}`} 
+                    alt={`Satisfied client ${i}`} 
+                    width={36}
+                    height={36}
+                    className="w-full h-full object-cover opacity-80" 
+                  />
                 </div>
               ))}
             </div>

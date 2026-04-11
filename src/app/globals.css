@@ -8,6 +8,12 @@
   --color-brand-charcoal: #2C2C2A;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  -webkit-tap-highlight-color: transparent;
+}
+
 :root {
   --background: var(--color-brand-offwhite);
   --foreground: var(--color-brand-charcoal);
