@@ -106,7 +106,7 @@ export default function CTASection() {
             <Link 
               href="#contact"
               aria-label="Get a free website consultation with Veloxa"
-              className="cta-button group relative flex items-center justify-center gap-3 w-full sm:w-auto bg-[#F1EFE8] text-[#0F2744] hover:text-white rounded-full px-10 py-5 text-base md:text-lg font-black transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(29,158,117,0.3)] overflow-hidden"
+              className="cta-button group relative flex items-center justify-center gap-3 w-full sm:w-auto bg-[#F1EFE8] text-[#0F2744] hover:text-white rounded-full px-6 py-4 sm:px-10 sm:py-5 text-sm sm:text-base md:text-lg font-black transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(29,158,117,0.3)] overflow-hidden"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10 flex items-center gap-2 tracking-wide">

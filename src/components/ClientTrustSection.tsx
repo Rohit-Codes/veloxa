@@ -156,7 +156,7 @@ export default function ClientTrustSection() {
       ref={sectionRef}
       id="client-trust"
       aria-labelledby="trust-heading"
-      className="relative w-full overflow-hidden bg-[#F1EFE8] py-20 md:py-28 px-6 md:px-16 lg:px-24"
+      className="relative w-full overflow-hidden bg-[#F1EFE8] py-16 md:py-28 px-4 sm:px-8 md:px-16 lg:px-24"
     >
       {/* Soft ambient orbs matching Services */}
       <div className="absolute top-0 left-[20%] w-[45%] h-[70%] rounded-full bg-[#185FA5]/12 blur-[120px] pointer-events-none" />
@@ -188,7 +188,7 @@ export default function ClientTrustSection() {
 
           <h2 
             id="trust-heading"
-            className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out delay-[100ms] text-4xl sm:text-5xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] max-w-md mb-6"
+            className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out delay-[100ms] text-3xl sm:text-4xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] max-w-md mb-6"
           >
             <span className="relative inline-block whitespace-nowrap">
               <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
@@ -247,7 +247,7 @@ export default function ClientTrustSection() {
                 return (
                   <div 
                     key={idx}
-                    className={`testimonial-card col-start-1 row-start-1 bg-white/60 border border-white/60 hover:bg-white hover:border-[#1D9E75]/30 backdrop-blur-md shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-3xl p-8 md:p-10 transition-all duration-600 ease-in-out ${
+                    className={`testimonial-card col-start-1 row-start-1 bg-white/60 border border-white/60 hover:bg-white hover:border-[#1D9E75]/30 backdrop-blur-md shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-3xl p-6 sm:p-8 md:p-10 transition-all duration-600 ease-in-out ${
                       isActive 
                         ? 'opacity-100 translate-y-0 z-10' 
                         : 'opacity-0 -translate-y-2 z-0 pointer-events-none'
@@ -283,8 +283,8 @@ export default function ClientTrustSection() {
                       </div>
                     </div>
 
-                    {/* Progress Bar Container within card (for rounded bottom) */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[3px] rounded-b-3xl overflow-hidden bg-[#0F2744]/10">
+                    {/* Progress Bar (Section Indicator) */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1.5 rounded-b-[1.5rem] overflow-hidden bg-[#0F2744]/5">
                       {isActive && (
                         <div 
                           key={`progress-${idx}`}
@@ -300,8 +300,8 @@ export default function ClientTrustSection() {
               })}
             </div>
 
-            {/* Navigation Dots */}
-            <div className="flex justify-center gap-2 mt-8">
+            {/* Navigation Dots (Slider Indicators) */}
+            <div className="flex justify-center gap-2 mt-12 sm:mt-16">
               {testimonials.map((_, dotIdx) => (
                 <button
                   key={dotIdx}

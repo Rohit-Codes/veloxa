@@ -16,10 +16,12 @@ import {
   CheckCircle2,
   AlertCircle,
 } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 export default function ContactSection() {
   const [isClient, setIsClient] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -30,6 +32,7 @@ export default function ContactSection() {
     handleSubmit,
     setValue,
     watch,
+    reset,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -58,12 +61,31 @@ export default function ContactSection() {
 
   const onSubmit = async (data: ContactFormData) => {
     setApiError(null);
+    setShowSuccess(false);
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      // In a real app, you would send this to your API (e.g., fetch('/api/contact', ...))
+      const templateParams = {
+        to_name: "Veloxa Team",
+        from_name: data.fullName,
+        from_email: data.email,
+        phone: data.phone,
+        location: data.location,
+        message: data.message,
+        services: data.services?.join(", ") || "None selected",
+      };
+
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_ee405ls',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
+      );
+      
+      setShowSuccess(true);
+      reset();
     } catch (err) {
+      console.error('EmailJS Error:', err);
       setApiError("Something went wrong. Please try again or email us directly at info@veloxa.tech");
+      throw err;
     }
   };
 
@@ -80,7 +102,7 @@ export default function ContactSection() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative overflow-hidden py-28 md:py-36 px-6 md:px-16 lg:px-24 bg-[#F1EFE8]"
+      className="relative overflow-hidden py-16 md:py-36 px-4 sm:px-8 md:px-16 lg:px-24 bg-[#F1EFE8]"
     >
       {/* Top Separator matching light theme */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#0F2744]/10 to-transparent" />
@@ -135,11 +157,11 @@ export default function ContactSection() {
 
           <h2
             id="contact-heading"
-            className="text-4xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] text-center mt-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] text-center mt-4"
           >
             Start Your Web Project —{" "}
             <span
-              className="relative inline-block whitespace-nowrap"
+              className="relative inline-block overflow-visible"
             >
               <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
               <span
@@ -155,7 +177,7 @@ export default function ContactSection() {
             </span>
           </h2>
 
-          <p className="text-base md:text-lg text-[#2C2C2A]/75 font-medium leading-relaxed text-center max-w-xl mx-auto mt-6">
+          <p className="text-sm border-0 sm:text-base md:text-lg text-[#2C2C2A]/75 font-medium leading-relaxed text-center max-w-xl mx-auto mt-6 px-2 sm:px-4">
             Ready to take your business online or upgrade your existing website? Tell us about your project and we'll get back to you within 24 hours — no sales pressure, just an honest conversation about what's possible.
           </p>
         </div>
@@ -228,9 +250,9 @@ export default function ContactSection() {
             <div className="w-full h-px bg-gradient-to-r from-[#1D9E75]/20 via-[#185FA5]/20 to-transparent mt-10 mb-10" />
 
             {/* Response Promise Badge */}
-            <div className="flex items-center gap-3 bg-white/70 backdrop-blur-sm border border-[#1D9E75]/20 rounded-2xl px-5 py-4 w-max max-w-full shadow-sm">
-              <Clock className="text-[#1D9E75] w-5 h-5 animate-pulse shrink-0" aria-hidden="true" />
-              <span className="text-sm text-[#0F2744]/80 font-semibold">
+            <div className="flex items-center gap-2 sm:gap-3 bg-white/70 backdrop-blur-sm border border-[#1D9E75]/20 rounded-2xl px-4 py-3 sm:px-5 sm:py-4 w-max max-w-full shadow-sm">
+              <Clock className="text-[#1D9E75] w-4 h-4 sm:w-5 sm:h-5 animate-pulse shrink-0" aria-hidden="true" />
+              <span className="text-[11px] sm:text-sm text-[#0F2744]/80 font-semibold uppercase tracking-wider">
                 We respond within 24 hours — guaranteed.
               </span>
             </div>
@@ -245,23 +267,7 @@ export default function ContactSection() {
               Fill in the details below and we'll get back to you with a custom plan — completely free.
             </p>
 
-            <div className="bg-white/60 border border-white/60 backdrop-blur-md shadow-sm rounded-3xl p-8 md:p-10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:bg-white hover:border-[#1D9E75]/30 transition-all duration-500 flex-1 flex flex-col">
-              {isSubmitSuccessful ? (
-                <div
-                  className="flex flex-col items-center justify-center py-10 text-center flex-1"
-                  role="status"
-                  aria-live="polite"
-                  style={{ animation: "fadeInScale 0.5s ease-out" }}
-                >
-                  <CheckCircle2 className="text-[#1D9E75] w-16 h-16 mb-6" />
-                  <h4 className="text-2xl font-bold text-[#0F2744] mb-3">
-                    We've received your message!
-                  </h4>
-                  <p className="text-[#2C2C2A]/75 font-medium max-w-md">
-                    Our team will get back to you within 24 hours. Check your inbox for a confirmation.
-                  </p>
-                </div>
-              ) : (
+            <div className="bg-white/60 border border-white/60 backdrop-blur-md shadow-sm rounded-3xl p-6 sm:p-8 md:p-10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:bg-white hover:border-[#1D9E75]/30 transition-all duration-500 flex-1 flex flex-col">
                 <form
                   noValidate
                   aria-label="Contact Veloxa for a free website consultation"
@@ -548,7 +554,7 @@ export default function ContactSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group submit-btn w-full bg-[#0F2744] text-white rounded-xl px-8 py-4 text-base font-bold flex items-center justify-center gap-3 hover:bg-[#185FA5] hover:shadow-[0_10px_40px_-10px_rgba(24,95,165,0.4)] active:scale-[0.98] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="group submit-btn w-full bg-[#0F2744] text-white rounded-xl px-6 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base font-bold flex items-center justify-center gap-3 hover:bg-[#185FA5] hover:shadow-[0_10px_40px_-10px_rgba(24,95,165,0.4)] active:scale-[0.98] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <>
@@ -563,12 +569,21 @@ export default function ContactSection() {
                       )}
                     </button>
 
+                    {showSuccess && (
+                      <div 
+                        className="mt-4 p-4 rounded-xl bg-[#1D9E75]/10 border border-[#1D9E75]/20 flex items-center justify-center gap-2 text-[#1D9E75] font-bold text-sm animate-in fade-in slide-in-from-top-2 duration-500"
+                        role="status"
+                      >
+                        <CheckCircle2 className="w-5 h-5" />
+                        thank you for submitting
+                      </div>
+                    )}
+
                     <p className="text-xs font-medium text-[#2C2C2A]/60 text-center mt-5 leading-relaxed">
                       By submitting this form, you agree to our <a href="/privacy-policy" className="hover:text-[#1D9E75] text-[#0F2744] font-semibold underline decoration-[#0F2744]/30 hover:decoration-[#1D9E75] transition-colors">Privacy Policy</a>. We never share your data with third parties.
                     </p>
                   </div>
                 </form>
-              )}
             </div>
           </div>
         </div>
