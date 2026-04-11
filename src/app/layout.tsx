@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, DM_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -81,6 +82,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const GA_MEASUREMENT_ID = "G-682G153K5S";
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -98,6 +101,21 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
       </head>
       <body
         className={`${inter.variable} ${dmSans.variable} font-sans min-h-screen bg-[#F1EFE8] text-[#2C2C2A] antialiased flex flex-col`}
@@ -117,3 +135,4 @@ export default function RootLayout({
     </html>
   );
 }
+
