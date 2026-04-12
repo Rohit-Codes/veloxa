@@ -5,16 +5,16 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ 
-  subsets: ["latin"], 
-  display: 'swap',
-  variable: '--font-inter',
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  display: 'swap',
-  variable: '--font-dm-sans',
+  display: "swap",
+  variable: "--font-dm-sans",
 });
 
 export const viewport: Viewport = {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "UI/UX design",
     "SEO optimization",
     "landing page design",
-    "frontend development"
+    "frontend development",
   ],
   manifest: "/manifest.json",
   authors: [{ name: "Veloxa Team" }],
@@ -56,7 +56,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Veloxa - Fast, Professional Website Development",
-    description: "Transform your ideas into high-performance websites with Veloxa.",
+    description:
+      "Transform your ideas into high-performance websites with Veloxa.",
     url: "https://veloxa.tech",
     siteName: "Veloxa",
     images: [
@@ -73,11 +74,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Veloxa - Fast, Professional Website Development",
-    description: "Transform your ideas into high-performance websites with Veloxa.",
+    description:
+      "Transform your ideas into high-performance websites with Veloxa.",
     images: ["/images/latest-mockup.png"],
   },
   verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE_HERE", // Replace with actual code from GSC
+    google: "r9mcJ7nrMUxHMmc258vaExpIYjR6m546NMDABWAsAL4", // Replace with actual code from GSC
   },
   robots: {
     index: true,
@@ -105,37 +107,38 @@ export default function RootLayout({
       {
         "@type": "ProfessionalService",
         "@id": "https://veloxa.tech/#organization",
-        "name": "Veloxa",
-        "url": "https://veloxa.tech",
-        "logo": "https://veloxa.tech/images/logo_new.png",
-        "image": "https://veloxa.tech/images/logo_new.png",
-        "description": "Professional website development services and custom Next.js development.",
-        "slogan": "From idea to online — fast.",
-        "telephone": "+919205568939",
-        "address": {
+        name: "Veloxa",
+        url: "https://veloxa.tech",
+        logo: "https://veloxa.tech/images/logo_new.png",
+        image: "https://veloxa.tech/images/logo_new.png",
+        description:
+          "Professional website development services and custom Next.js development.",
+        slogan: "From idea to online — fast.",
+        telephone: "+919205568939",
+        address: {
           "@type": "PostalAddress",
-          "streetAddress": "Connaught Place",
-          "addressLocality": "New Delhi",
-          "addressCountry": "IN",
-          "postalCode": "110001"
+          streetAddress: "Connaught Place",
+          addressLocality: "New Delhi",
+          addressCountry: "IN",
+          postalCode: "110001",
         },
-        "priceRange": "$$",
-        "sameAs": [
+        priceRange: "$$",
+        sameAs: [
           "https://www.facebook.com/people/Veloxa/61573277101288/",
           "https://twitter.com/veloxa",
-          "https://linkedin.com/company/veloxa"
-        ]
+          "https://linkedin.com/company/veloxa",
+        ],
       },
       {
         "@type": "WebSite",
         "@id": "https://veloxa.tech/#website",
-        "url": "https://veloxa.tech",
-        "name": "Veloxa Website Development",
-        "publisher": {
-          "@id": "https://veloxa.tech/#organization"
-        }
-      }
-    ]
+        url: "https://veloxa.tech",
+        name: "Veloxa Website Development",
+        publisher: {
+          "@id": "https://veloxa.tech/#organization",
+        },
+      },
+    ],
   };
 
   return (
@@ -164,8 +167,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${dmSans.variable} font-sans min-h-screen bg-[#F1EFE8] text-[#2C2C2A] antialiased flex flex-col`}
       >
-        <a 
-          href="#main-content" 
+        <a
+          href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] bg-[#185FA5] text-[#F1EFE8] px-4 py-2 rounded-md font-bold focus:outline-none focus:ring-2 focus:ring-[#1D9E75]"
         >
           Skip to main content
@@ -179,4 +182,3 @@ export default function RootLayout({
     </html>
   );
 }
-
