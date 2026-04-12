@@ -26,10 +26,10 @@ export default function Header() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4 pointer-events-none">
         <div
-          className={`pointer-events-auto transition-all duration-500 rounded-full px-5 py-2 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/40 ${
+          className={`pointer-events-auto transition-all duration-500 rounded-full px-5 py-2 flex items-center justify-between ${
             isScrolled
-              ? "w-full max-w-4xl bg-white/70 backdrop-blur-xl"
-              : "w-full max-w-6xl bg-white/40 backdrop-blur-md"
+              ? "w-full max-w-4xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-sm"
+              : "w-full max-w-6xl bg-transparent"
           }`}
         >
           {/* Logo */}
