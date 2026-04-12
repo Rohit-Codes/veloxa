@@ -17,9 +17,9 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: "Services", path: "/services" },
-    { name: "Portfolio", path: "/portfolio" },
     { name: "About", path: "/about" },
+    { name: "Projects", path: "/portfolio" },
+    { name: "Contact", path: "/contact-us" },
   ];
 
   return (
@@ -52,7 +52,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2">
-            <ul className="flex items-center space-x-1 rounded-full px-2 py-1 ">
+            {/* <ul className="flex items-center space-x-1 rounded-full px-2 py-1 ">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -63,7 +63,7 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </nav>
 
           {/* Desktop CTA */}
@@ -121,7 +121,7 @@ export default function Header() {
             Home{" "}
             <ChevronRight className="opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all text-[#185FA5]" />
           </Link>
-          {navLinks.map((link) => (
+          {/* {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.path}
@@ -131,7 +131,7 @@ export default function Header() {
               {link.name}{" "}
               <ChevronRight className="opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all text-[#185FA5]" />
             </Link>
-          ))}
+          ))} */}
           <Link
             href="/contact"
             className="text-3xl font-bold text-[#185FA5] pt-4 flex justify-between items-center"

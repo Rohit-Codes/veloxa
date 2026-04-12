@@ -23,10 +23,25 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Veloxa - Fast, Professional Website Development Services",
+  metadataBase: new URL("https://veloxa.tech"),
+  title: {
+    default: "Veloxa - Fast, Professional Website Development Services",
+    template: "%s | Veloxa",
+  },
   description:
     "Transform your ideas into high-performance websites. Veloxa offers custom web development with Next.js, SEO optimization, and lightning-fast load times.",
-  keywords: "website development, web development services, custom websites, Next.js development, responsive web design, veloxa",
+  keywords: [
+    "website development",
+    "web development services",
+    "custom websites",
+    "Next.js development",
+    "responsive web design",
+    "veloxa",
+    "UI/UX design",
+    "SEO optimization",
+    "landing page design",
+    "frontend development"
+  ],
   manifest: "/manifest.json",
   authors: [{ name: "Veloxa Team" }],
   creator: "Veloxa",
@@ -86,12 +101,41 @@ export default function RootLayout({
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Veloxa",
-    url: "https://veloxa.tech",
-    logo: "https://veloxa.tech/logo.png",
-    description: "Professional website development services",
-    slogan: "From idea to online — fast.",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://veloxa.tech/#organization",
+        "name": "Veloxa",
+        "url": "https://veloxa.tech",
+        "logo": "https://veloxa.tech/images/logo_new.png",
+        "image": "https://veloxa.tech/images/logo_new.png",
+        "description": "Professional website development services and custom Next.js development.",
+        "slogan": "From idea to online — fast.",
+        "telephone": "+919205568939",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Connaught Place",
+          "addressLocality": "New Delhi",
+          "addressCountry": "IN",
+          "postalCode": "110001"
+        },
+        "priceRange": "$$",
+        "sameAs": [
+          "https://www.facebook.com/people/Veloxa/61573277101288/",
+          "https://twitter.com/veloxa",
+          "https://linkedin.com/company/veloxa"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://veloxa.tech/#website",
+        "url": "https://veloxa.tech",
+        "name": "Veloxa Website Development",
+        "publisher": {
+          "@id": "https://veloxa.tech/#organization"
+        }
+      }
+    ]
   };
 
   return (

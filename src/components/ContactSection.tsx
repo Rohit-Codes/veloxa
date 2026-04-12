@@ -163,7 +163,6 @@ export default function ContactSection() {
             <span
               className="relative inline-block overflow-visible"
             >
-              <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
               <span
                 className="relative text-transparent bg-clip-text"
                 style={{
