@@ -85,6 +85,7 @@ function MarqueeRow({
 export default function ProjectShowcase() {
   return (
     <section
+      id="projects"
       className="showcase-section relative w-full overflow-hidden py-16 md:py-24 bg-[#F1EFE8]"
       aria-label="Project Showcase"
     >

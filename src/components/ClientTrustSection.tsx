@@ -154,7 +154,7 @@ export default function ClientTrustSection() {
   return (
     <section 
       ref={sectionRef}
-      id="client-trust"
+      id="about"
       aria-labelledby="trust-heading"
       className="relative w-full overflow-hidden bg-[#F1EFE8] py-16 md:py-28 px-4 sm:px-8 md:px-16 lg:px-24"
     >
