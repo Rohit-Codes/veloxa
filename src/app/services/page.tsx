@@ -6,6 +6,15 @@ import ServicesSection from "@/components/ServicesSection";
 export const metadata: Metadata = {
   title: "Our Services - Veloxa",
   description: "Explore our wide range of web development services, from custom apps to SEO optimization.",
+  alternates: {
+    canonical: "https://veloxa.tech/services",
+  },
+  openGraph: {
+    title: "Our Services - Veloxa",
+    description: "Explore our wide range of web development services, from custom apps to SEO optimization.",
+    url: "https://veloxa.tech/services",
+    type: "website",
+  },
 };
 
 export default function ServicesPage() {

@@ -4,6 +4,15 @@ import ContactSection from "@/components/ContactSection";
 export const metadata: Metadata = {
   title: "Contact Us - Veloxa",
   description: "Get in touch with Veloxa for your next project. We're here to help you scale your digital presence.",
+  alternates: {
+    canonical: "https://veloxa.tech/contact",
+  },
+  openGraph: {
+    title: "Contact Us - Veloxa",
+    description: "Get in touch with Veloxa for your next project. We're here to help you scale your digital presence.",
+    url: "https://veloxa.tech/contact",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {

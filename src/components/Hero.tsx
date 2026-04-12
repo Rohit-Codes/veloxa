@@ -94,6 +94,7 @@ export default function Hero() {
 
           {/* Scaled-down Exaggerated Typography H1 */}
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6 opacity-0 animate-[fade-in-up_1s_ease-out_0.2s_forwards]">
+            <span className="block text-sm sm:text-base uppercase tracking-[0.3em] text-[#1D9E75] mb-3 font-bold">Expert Web Development Agency</span>
             Transform Your Vision Into a {" "}
             <span className="relative inline-block whitespace-nowrap">
               <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>

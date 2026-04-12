@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Veloxa | Web Development Agency",
     description: "From idea to online — fast. Discover the team and values behind Veloxa's high-performance web development services.",
-    url: "https://veloxa.in/about",
+    url: "https://veloxa.tech/about",
     type: "website",
   },
   alternates: {
-    canonical: "https://veloxa.in/about",
+    canonical: "https://veloxa.tech/about",
   },
 };
 
