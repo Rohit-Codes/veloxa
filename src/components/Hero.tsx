@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles, Star, GitBranch, Terminal } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -136,17 +135,22 @@ export default function Hero() {
           
           <div className="flex flex-col items-center md:items-start gap-2 sm:gap-3">
             <div className="flex -space-x-2">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-[#F1EFE8] bg-[#0F2744] overflow-hidden relative shadow-sm">
-                  {/* Simulated Avatars using gradients */}
-                  <div className={`absolute inset-0 bg-gradient-to-br from-white/20 to-transparent mix-blend-overlay ${i % 2 === 0 ? 'bg-blue-400' : 'bg-teal-400'}`}></div>
-                  <Image 
-                    src={`https://i.pravatar.cc/100?img=${i + 10}`} 
-                    alt={`Satisfied client ${i}`} 
-                    width={36}
-                    height={36}
-                    className="w-full h-full object-cover opacity-80" 
-                  />
+              {[
+                { initials: "AK", from: "#185FA5", to: "#0F2744" },
+                { initials: "PR", from: "#1D9E75", to: "#0a6e50" },
+                { initials: "SM", from: "#185FA5", to: "#1D9E75" },
+                { initials: "RV", from: "#0F2744", to: "#185FA5" },
+                { initials: "NK", from: "#1D9E75", to: "#185FA5" },
+              ].map((client, i) => (
+                <div
+                  key={i}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-[#F1EFE8] overflow-hidden relative shadow-sm flex items-center justify-center"
+                  style={{ background: `linear-gradient(135deg, ${client.from}, ${client.to})` }}
+                  aria-label={`Client ${client.initials}`}
+                >
+                  <span className="text-white font-bold text-[9px] sm:text-[10px] select-none">
+                    {client.initials}
+                  </span>
                 </div>
               ))}
             </div>
@@ -159,7 +163,7 @@ export default function Hero() {
                 <Star className="w-3.5 h-3.5 fill-current" />
                 <span className="text-[#0F2744] font-bold ml-1">5.0</span>
               </div>
-              <span>From 500+ satisfied clients</span>
+              <span>From 50+ happy clients</span>
             </div>
           </div>
 

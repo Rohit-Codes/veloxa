@@ -193,9 +193,39 @@ export default function PrivacyPolicy() {
                 <code className="bg-[#185FA5]/10 px-1 py-0.5 rounded text-xs font-mono">
                   googletagmanager.com
                 </code>{" "}
-                to fire analytics events. This script is subject to Google's
-                data processing terms. No additional personal data is collected
-                beyond what Google Analytics already captures.
+                to fire analytics and advertising events. This script is subject
+                to Google's data processing terms.
+              </p>
+            </div>
+
+            {/* Google Ads */}
+            <div className="bg-white border border-[#2C2C2A]/10 rounded-xl p-5 mb-4 shadow-sm">
+              <h3 className="font-bold text-[#2C2C2A] mb-1">
+                Google Ads (Conversion &amp; Remarketing)
+              </h3>
+              <p className="text-sm mb-2">
+                We use <strong>Google Ads</strong> to promote our services. To measure the effectiveness of our campaigns and to show relevant ads to people who have visited our site, we use Google Ads conversion tracking and remarketing features.
+              </p>
+              <p className="text-sm mb-2">
+                <strong>How it works:</strong> When you click on one of our ads, a temporary cookie is placed on your device. If you then complete a certain action (like filling out our contact form), this is recorded as a "conversion". We also use remarketing cookies to show our ads to you on other websites within the Google Display Network based on your past visits to our site.
+              </p>
+              <p className="text-sm">
+                <strong>Opt-out:</strong> You can opt out of Google's use of cookies for interest-based advertising by visiting{" "}
+                <a
+                  href="https://www.google.com/settings/ads"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#185FA5] underline underline-offset-2"
+                >
+                  Google's Ads Settings
+                </a> or the <a
+                  href="https://optout.networkadvertising.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#185FA5] underline underline-offset-2"
+                >
+                  Network Advertising Initiative opt-out page
+                </a>.
               </p>
             </div>
 

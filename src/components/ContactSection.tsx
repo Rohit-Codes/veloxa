@@ -88,11 +88,24 @@ export default function ContactSection() {
 
       setShowSuccess(true);
       reset();
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "qualify_lead", {
-          event_category: "Contact Form",
-          event_label: "Form Submitted Successfully",
+
+      // ---------------------------------------------------------------
+      // GA4 Conversion Tracking (linked to Google Ads via GA4 data source)
+      // ---------------------------------------------------------------
+      // "generate_lead" is Google's recommended standard event for lead forms.
+      // Because you linked GA4 (G-682G153K5S) as a data source in Google Ads,
+      // this event is automatically imported as a conversion in your Ads account.
+      // No GTM tag or gtag conversion snippet needed.
+      // ---------------------------------------------------------------
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "generate_lead", {
+          // Standard GA4 recommended parameters for lead events
+          currency: "INR",
+          value: 1,                                                 // Relative lead value (adjust to reflect avg deal size)
+          // Custom dimensions for GA4 reporting
+          form_name: "contact_form",
           services_selected: data.services?.join(", ") || "None",
+          user_location: data.location || "Unknown",
         });
       }
     } catch (err) {
