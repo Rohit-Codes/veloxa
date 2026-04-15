@@ -24,6 +24,13 @@ export default function WelcomePopup() {
   const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
+    const handleOpenPopup = () => {
+      setIsDismissed(false);
+      setIsVisible(true);
+    };
+
+    window.addEventListener("open-welcome-popup", handleOpenPopup);
+
     const dismissed = localStorage.getItem("veloxa_popup_dismissed");
     if (!dismissed) {
       setIsDismissed(false);
@@ -31,8 +38,13 @@ export default function WelcomePopup() {
       const timer = setTimeout(() => {
         setIsVisible(true);
       }, 12000);
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener("open-welcome-popup", handleOpenPopup);
+      };
     }
+
+    return () => window.removeEventListener("open-welcome-popup", handleOpenPopup);
   }, []);
 
   const {

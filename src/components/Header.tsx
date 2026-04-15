@@ -56,12 +56,12 @@ export default function Header() {
             <ul className="flex items-center space-x-1 rounded-full px-2 py-1 ">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
+                  <a
                     href={link.path}
                     className="px-4 py-2 rounded-full text-sm font-semibold text-[#2C2C2A] hover:bg-white hover:shadow-sm hover:text-[#185FA5] transition-all duration-300"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -69,16 +69,16 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Link
-              href="#contact"
-              className="group relative inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95"
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+              className="group relative inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 cursor-pointer"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10 flex items-center gap-2 text-sm">
                 Get My Website Quote{" "}
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -114,16 +114,16 @@ export default function Header() {
         </div>
 
         <nav className="flex flex-col space-y-6">
-          <Link
+          <a
             href="/"
             className="text-3xl font-bold text-[#0F2744] border-b border-[#0F2744]/10 pb-4 flex justify-between items-center group"
             onClick={() => setMobileMenuOpen(false)}
           >
             Home{" "}
             <ChevronRight className="opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all text-[#185FA5]" />
-          </Link>
+          </a>
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
               href={link.path}
               className="text-3xl font-bold text-[#0F2744] border-b border-[#0F2744]/10 pb-4 flex justify-between items-center group"
@@ -131,7 +131,7 @@ export default function Header() {
             >
               {link.name}{" "}
               <ChevronRight className="opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all text-[#185FA5]" />
-            </Link>
+            </a>
           ))}
         </nav>
       </div>

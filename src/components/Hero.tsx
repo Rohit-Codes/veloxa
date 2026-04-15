@@ -119,23 +119,23 @@ export default function Hero() {
 
           {/* Magnetic/Modern CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-12 sm:mb-16 opacity-0 animate-[fade-in-up_1s_ease-out_0.6s_forwards]">
-            <Link
-              href="#contact"
-              className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.5)] text-sm"
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+              className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.5)] text-sm cursor-pointer"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative z-10 flex items-center gap-2">
                 <Sparkles size={16} />
                 Claim My ₹10K Next.js Site
               </span>
-            </Link>
-            <Link
-              href="/services"
-              className="group w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-white/50 backdrop-blur-md border border-[#0F2744]/10 hover:border-[#0F2744]/30 font-bold rounded-full text-[#0F2744] transition-all duration-300 hover:bg-white hover:shadow-lg text-sm"
+            </button>
+            <a
+              href="#services"
+              className="group w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-white/50 backdrop-blur-md border border-[#0F2744]/10 hover:border-[#0F2744]/30 font-bold rounded-full text-[#0F2744] transition-all duration-300 hover:bg-white hover:shadow-lg text-sm cursor-pointer"
             >
               View Services
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 duration-300" />
-            </Link>
+            </a>
           </div>
 
           <p className="text-xs sm:text-sm text-[#0F2744]/55 font-semibold -mt-7 sm:-mt-10 mb-12 sm:mb-16 opacity-0 animate-[fade-in-up_1s_ease-out_0.7s_forwards]">

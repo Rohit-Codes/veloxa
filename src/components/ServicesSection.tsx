@@ -140,16 +140,16 @@ export default function ServicesSection() {
           </div>
 
           {/* CTA Button */}
-          <Link
-            href="#contact"
-            className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out delay-[300ms] group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.3)] text-sm"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+            className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out delay-[300ms] group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.3)] text-sm cursor-pointer"
           >
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="relative z-10 flex items-center gap-2">
               Let&apos;s Get Started
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
-          </Link>
+          </button>
         </div>
 
         {/* RIGHT COLUMN */}
