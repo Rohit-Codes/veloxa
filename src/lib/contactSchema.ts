@@ -12,13 +12,6 @@ export const contactSchema = z.object({
   phone: z.string()
     .regex(/^(\+91[\s]?)?[6-9]\d{9}$/, "Enter a valid 10-digit Indian mobile number"),
 
-  location: z.string()
-    .min(2, "Please enter your city or location"),
-
-  message: z.string()
-    .min(20, "Please provide at least 20 characters")
-    .max(1000, "Message is too long"),
-
   services: z.array(z.string()).optional(),
 });
 

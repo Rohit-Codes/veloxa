@@ -11,7 +11,7 @@ const faqData = [
   },
   {
     question: "How much does a website cost?",
-    answer: "Website development costs vary based on your requirements — the number of pages, features, design complexity, and integrations involved. We offer transparent, custom quotes with no hidden fees. Most small business websites start from an affordable base price, and we'll give you a clear breakdown before any work begins. Book a free consultation and we'll put together a quote tailored to your goals."
+    answer: "Our custom business websites typically start at ₹15,000 (or your actual minimum). This includes a high-performance Next.js build, SEO optimization, and mobile responsiveness. For complex E-commerce or Web Apps, we provide a detailed custom quote within 24 hours of your consultation."
   },
   {
     question: "Will my website be optimized for Google and SEO?",

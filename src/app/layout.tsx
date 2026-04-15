@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -196,6 +197,7 @@ export default function RootLayout({
         <main id="main-content" className="flex-grow">
           {children}
         </main>
+        <WhatsAppFloatingButton />
         <Footer />
       </body>
     </html>

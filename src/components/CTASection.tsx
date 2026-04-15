@@ -105,15 +105,18 @@ export default function CTASection() {
           <div className="observe-me opacity-0 scale-90 data-[intersected=true]:opacity-100 data-[intersected=true]:scale-100 transition-all duration-700 delay-300 w-full">
             <Link 
               href="#contact"
-              aria-label="Get a free website consultation with Veloxa"
+              aria-label="Get your website quote with Veloxa"
               className="cta-button group relative flex items-center justify-center gap-3 w-full sm:w-auto bg-[#F1EFE8] text-[#0F2744] hover:text-white rounded-full px-6 py-4 sm:px-10 sm:py-5 text-sm sm:text-base md:text-lg font-black transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(29,158,117,0.3)] overflow-hidden"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10 flex items-center gap-2 tracking-wide">
-                Get Free Consultation
+                Launch My Site in 14 Days
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-200" />
               </span>
             </Link>
+            <p className="mt-3 text-xs sm:text-sm text-[#F1EFE8]/65 font-semibold text-center">
+              Get a custom plan in 24 hours
+            </p>
           </div>
 
           {/* Floating Stat Badge relative to CTA Button */}
@@ -161,4 +164,3 @@ export default function CTASection() {
     </section>
   );
 }
-

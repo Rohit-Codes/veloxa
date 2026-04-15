@@ -5,12 +5,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, ContactFormData } from "@/lib/contactSchema";
 import {
-  MapPin,
   Phone,
   Mail,
   Clock,
   User,
-  MessageSquare,
   ArrowRight,
   Loader2,
   CheckCircle2,
@@ -39,7 +37,7 @@ export default function ContactSection() {
     setValue,
     watch,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     mode: "onBlur",
@@ -74,8 +72,8 @@ export default function ContactSection() {
         from_name: data.fullName,
         from_email: data.email,
         phone: data.phone,
-        location: data.location,
-        message: data.message,
+        location: "Collected in follow-up",
+        message: "Collected in follow-up",
         services: data.services?.join(", ") || "None selected",
       };
 
@@ -105,7 +103,7 @@ export default function ContactSection() {
           // Custom dimensions for GA4 reporting
           form_name: "contact_form",
           services_selected: data.services?.join(", ") || "None",
-          user_location: data.location || "Unknown",
+          user_location: "Collected in follow-up",
         });
       }
     } catch (err) {
@@ -116,8 +114,6 @@ export default function ContactSection() {
       throw err;
     }
   };
-
-  const messageValue = watch("message") || "";
 
   if (!isClient) {
     return null; // Prevent hydration warnings
@@ -182,7 +178,7 @@ export default function ContactSection() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
             </span>
             <span className="text-[#0F2744] font-medium text-[11px] sm:text-xs tracking-widest uppercase">
-              Let's Connect
+              Quick Quote
             </span>
           </div>
 
@@ -201,16 +197,15 @@ export default function ContactSection() {
                   animation: "gradientShift 4s ease-in-out infinite",
                 }}
               >
-                Get a Free Consultation Today
+                Get Your Website Quote
               </span>
             </span>
           </h2>
 
           <p className="text-sm border-0 sm:text-base md:text-lg text-[#2C2C2A]/75 font-medium leading-relaxed text-center max-w-xl mx-auto mt-6 px-2 sm:px-4">
-            Ready to take your business online or upgrade your existing website?
-            Tell us about your project and we'll get back to you within 24 hours
-            — no sales pressure, just an honest conversation about what's
-            possible.
+            Share your contact details and the type of website you need. We&apos;ll
+            follow up within 24 hours to collect project details, location, and
+            the rest of your requirements.
           </p>
         </div>
 
@@ -225,33 +220,13 @@ export default function ContactSection() {
               Contact Information
             </h3>
             <p className="text-base text-[#2C2C2A]/75 font-medium leading-relaxed mb-10 max-w-sm">
-              We'd love to hear about your project, your goals, and how Veloxa
-              can help you grow online. Reach out through any of the channels
-              below — our team typically responds within one business day.
+              Reach out through the channel that feels fastest for you. We reply
+              quickly, keep the first step simple, and map the full scope with
+              you on follow-up.
             </p>
 
             <div className="space-y-7">
-              {/* Item 1 - Location */}
-              <div className="flex items-start gap-5 group">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-white shadow-sm border border-[#0F2744]/5 group-hover:border-[#1D9E75]/30 group-hover:scale-105 transition-all duration-300">
-                  <MapPin
-                    className="text-[#1D9E75] w-5 h-5"
-                    aria-hidden="true"
-                  />
-                </div>
-                <div>
-                  <div className="text-xs uppercase font-semibold tracking-widest text-[#0F2744]/50 mb-1">
-                    Our Office
-                  </div>
-                  <address className="not-italic text-sm font-semibold text-[#0F2744] group-hover:text-[#1D9E75] transition-colors duration-300">
-                    Connaught Place, New Delhi, India
-                    <br />
-                    110001
-                  </address>
-                </div>
-              </div>
-
-              {/* Item 2 - Phone */}
+              {/* Item 1 - Phone */}
               <div className="flex items-start gap-5 group">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-white shadow-sm border border-[#0F2744]/5 group-hover:border-[#1D9E75]/30 group-hover:scale-105 transition-all duration-300">
                   <Phone
@@ -272,7 +247,7 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* Item 3 - Email */}
+              {/* Item 2 - Email */}
               <div className="flex items-start gap-5 group">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-white shadow-sm border border-[#0F2744]/5 group-hover:border-[#1D9E75]/30 group-hover:scale-105 transition-all duration-300">
                   <Mail className="text-[#1D9E75] w-5 h-5" aria-hidden="true" />
@@ -300,7 +275,7 @@ export default function ContactSection() {
                 aria-hidden="true"
               />
               <span className="text-[11px] sm:text-sm text-[#0F2744]/80 font-semibold uppercase tracking-wider">
-                We respond within 24 hours — guaranteed.
+                Response within 2 hours (Mon-Fri), custom plan within 24 hours.
               </span>
             </div>
           </div>
@@ -311,17 +286,17 @@ export default function ContactSection() {
             style={{ animation: "popIn 0.8s ease-out 0.4s both" }}
           >
             <h3 className="text-2xl md:text-3xl font-bold text-[#0F2744] mb-2">
-              Tell Us About Your Project
+              Get a Quick Quote
             </h3>
             <p className="text-sm text-[#2C2C2A]/75 font-medium mb-8">
-              Fill in the details below and we'll get back to you with a custom
-              plan — completely free.
+              Start with the essentials only. We&apos;ll collect your project
+              details and location in the follow-up.
             </p>
 
             <div className="bg-white/60 border border-white/60 backdrop-blur-md shadow-sm rounded-3xl p-6 sm:p-8 md:p-10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:bg-white hover:border-[#1D9E75]/30 transition-all duration-500 flex-1 flex flex-col">
               <form
                 noValidate
-                aria-label="Contact Veloxa for a free website consultation"
+                aria-label="Contact Veloxa for a quick website quote"
                 onSubmit={handleSubmit(onSubmit)}
                 className="space-y-6 flex-1 flex flex-col"
               >
@@ -488,134 +463,12 @@ export default function ContactSection() {
                     )}
                   </div>
 
-                  {/* Field 4: Location */}
-                  <div>
-                    <label
-                      htmlFor="location"
-                      className="text-[11px] uppercase tracking-widest text-[#0F2744]/60 mb-2 block font-bold"
-                    >
-                      Your Location *
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        id="location"
-                        placeholder="e.g. Mumbai, Maharashtra"
-                        autoComplete="address-level2"
-                        aria-required="true"
-                        aria-describedby={
-                          errors.location ? "location-error" : "location-helper"
-                        }
-                        aria-invalid={errors.location ? "true" : "false"}
-                        className={`${inputBaseClass} ${
-                          errors.location
-                            ? "border-red-500/60 focus:border-red-500 focus:ring-red-500/20 pr-10"
-                            : !errors.location && watch("location")
-                              ? "border-[#1D9E75]/60 pr-10"
-                              : "pr-10"
-                        }`}
-                        {...register("location")}
-                      />
-                      <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none">
-                        <MapPin
-                          className={`w-4 h-4 ${
-                            errors.location
-                              ? "text-red-500"
-                              : !errors.location && watch("location")
-                                ? "text-[#1D9E75]"
-                                : "text-[#0F2744]/30"
-                          }`}
-                        />
-                      </div>
-                    </div>
-                    {errors.location ? (
-                      <span
-                        id="location-error"
-                        role="alert"
-                        className="text-xs text-red-500 font-medium mt-1.5 flex items-center gap-1"
-                        style={{ animation: "fadeIn 0.2s ease" }}
-                      >
-                        <AlertCircle className="w-3 h-3" />
-                        {errors.location.message}
-                      </span>
-                    ) : (
-                      <span
-                        id="location-helper"
-                        className="text-[10px] uppercase font-semibold tracking-wider text-[#0F2744]/40 mt-1.5 block"
-                      >
-                        Helps us understand your timezone and market
-                      </span>
-                    )}
-                  </div>
                 </div>
 
-                {/* Field 5: Message */}
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="text-[11px] uppercase tracking-widest text-[#0F2744]/60 mb-2 block font-bold"
-                  >
-                    Tell Us About Your Project *
-                  </label>
-                  <div className="relative">
-                    <textarea
-                      id="message"
-                      rows={4}
-                      placeholder="Describe your website goals, features you need, your timeline, and any other details..."
-                      aria-required="true"
-                      aria-describedby={
-                        errors.message ? "message-error" : undefined
-                      }
-                      aria-invalid={errors.message ? "true" : "false"}
-                      className={`${inputBaseClass} resize-none pt-3.5 pb-8 ${
-                        errors.message
-                          ? "border-red-500/60 focus:border-red-500 focus:ring-red-500/20 pr-10"
-                          : !errors.message && watch("message")
-                            ? "border-[#1D9E75]/60 pr-10"
-                            : "pr-10"
-                      }`}
-                      {...register("message")}
-                    ></textarea>
-                    <div className="absolute right-3 top-3.5 flex items-center pointer-events-none">
-                      <MessageSquare
-                        className={`w-4 h-4 ${
-                          errors.message
-                            ? "text-red-500"
-                            : !errors.message && watch("message")
-                              ? "text-[#1D9E75]"
-                              : "text-[#0F2744]/30"
-                        }`}
-                      />
-                    </div>
-                    <div
-                      className={`absolute bottom-3 right-3 text-xs font-semibold ${
-                        messageValue.length >= 900
-                          ? "text-red-500"
-                          : messageValue.length >= 20
-                            ? "text-[#1D9E75]"
-                            : "text-[#0F2744]/40"
-                      }`}
-                    >
-                      {messageValue.length} / 1000
-                    </div>
-                  </div>
-                  {errors.message && (
-                    <span
-                      id="message-error"
-                      role="alert"
-                      className="text-xs text-red-500 font-medium mt-1.5 flex items-center gap-1"
-                      style={{ animation: "fadeIn 0.2s ease" }}
-                    >
-                      <AlertCircle className="w-3 h-3" />
-                      {errors.message.message}
-                    </span>
-                  )}
-                </div>
-
-                {/* Field 6: Services Interested In */}
+                {/* Field 4: Services Interested In */}
                 <div>
                   <label className="text-[11px] uppercase tracking-widest text-[#0F2744]/60 mb-3 block font-bold">
-                    Services You're Interested In
+                    Services You Need
                   </label>
                   <div className="flex flex-wrap gap-2">
                     {[
@@ -646,6 +499,11 @@ export default function ContactSection() {
                   </div>
                 </div>
 
+                <p className="text-xs sm:text-sm text-[#0F2744]/55 font-medium leading-relaxed">
+                  We&apos;ll ask about your location, goals, and detailed scope in
+                  our first reply so you can get started faster.
+                </p>
+
                 {/* API Error Banner */}
                 {apiError && (
                   <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 flex items-center gap-2">
@@ -669,11 +527,15 @@ export default function ContactSection() {
                       </>
                     ) : (
                       <>
-                        <span>Get Free Consultation</span>
+                        <span>Get My Website Quote</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
                       </>
                     )}
                   </button>
+
+                  <p className="mt-3 text-xs sm:text-sm text-[#0F2744]/55 font-semibold text-center">
+                    Response within 2 hours (Mon-Fri)
+                  </p>
 
                   {showSuccess && (
                     <div
@@ -681,7 +543,7 @@ export default function ContactSection() {
                       role="status"
                     >
                       <CheckCircle2 className="w-5 h-5" />
-                      thank you for submitting
+                      Thank you for submitting
                     </div>
                   )}
 

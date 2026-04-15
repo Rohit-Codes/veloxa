@@ -21,7 +21,7 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-6 py-12 text-center">
         <h1 className="text-5xl font-black tracking-tight mb-4">Let's Talk.</h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Have a vision? We have the tools to build it. Reach out today for a free consultation and website audit.
+          Have a vision? We have the tools to build it. Reach out today for a quick website quote and a custom plan within 24 hours.
         </p>
       </div>
       <ContactSection />

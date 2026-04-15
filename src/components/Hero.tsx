@@ -81,6 +81,14 @@ export default function Hero() {
         
         {/* MAIN HERO CONTENT */}
         <div className="w-full max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+          {/* Value Badge */}
+          <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#1D9E75]/10 border border-[#1D9E75]/30 backdrop-blur-md opacity-0 animate-[fade-in_1s_ease-out_forwards,pulse-green-glow_3s_ease-in-out_infinite] transition-all duration-300">
+            <span className="flex h-1.5 w-1.5 rounded-full bg-[#1D9E75] shadow-[0_0_8px_#1D9E75]"></span>
+            <span className="text-[#0a6e50] font-bold text-[10px] sm:text-[11px] tracking-wider">
+              Starting at ₹10K
+            </span>
+          </div>
+
           {/* Modern Pill Tagline */}
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm opacity-0 animate-[fade-in_1s_ease-out_forwards]">
             <span className="relative flex h-2 w-2">
@@ -118,7 +126,7 @@ export default function Hero() {
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative z-10 flex items-center gap-2">
                 <Sparkles size={16} />
-                Discuss Your Ideas
+                Claim My ₹10K Next.js Site
               </span>
             </Link>
             <Link
@@ -129,6 +137,10 @@ export default function Hero() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 duration-300" />
             </Link>
           </div>
+
+          <p className="text-xs sm:text-sm text-[#0F2744]/55 font-semibold -mt-7 sm:-mt-10 mb-12 sm:mb-16 opacity-0 animate-[fade-in-up_1s_ease-out_0.7s_forwards]">
+            Response within 2 hours (Mon-Fri)
+          </p>
         </div>
 
         {/* --- TRUST & RATING ELEMENTS --- (Now positioned directly under buttons) */}
@@ -219,6 +231,10 @@ export default function Hero() {
         @keyframes pulse-glow {
           0%, 100% { opacity: 0.4; box-shadow: 0 0 8px rgba(24, 95, 165, 0.2); }
           50% { opacity: 0.8; box-shadow: 0 0 20px rgba(24, 95, 165, 0.5); }
+        }
+        @keyframes pulse-green-glow {
+          0%, 100% { box-shadow: 0 0 5px rgba(29, 158, 117, 0.2); border-color: rgba(29, 158, 117, 0.3); }
+          50% { box-shadow: 0 0 15px rgba(29, 158, 117, 0.5); border-color: rgba(29, 158, 117, 0.6); }
         }
       `}} />
     </section>
