@@ -6,6 +6,18 @@
   --color-brand-teal: #1D9E75;
   --color-brand-offwhite: #F1EFE8;
   --color-brand-charcoal: #2C2C2A;
+
+  --animate-logo-pulse: logo-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-loading-bar: loading-bar 2s linear infinite;
+
+  @keyframes logo-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+    50% { opacity: 0.8; transform: scale(0.98); filter: brightness(1.1); }
+  }
+  @keyframes loading-bar {
+    0% { background-position: 200% 0; }
+    100% { background-position: 0 0; }
+  }
 }
 
 html {
@@ -43,17 +55,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Removal of Animations on Mobile */
+/* Removal of Animations on Mobile (except Preloader) */
 @media (max-width: 768px) {
-  *,
-  *::before,
-  *::after {
+  *:not(#preloader):not(#preloader *),
+  *:not(#preloader):not(#preloader *)::before,
+  *:not(#preloader):not(#preloader *)::after {
     /* Disable all CSS animations */
     animation: none !important;
     
     /* Disable long transitions primarily used for entrance effects */
-    /* We use a threshold to keep short interaction feedback if needed, 
-       but for "remove all animation", we can be aggressive. */
     transition-duration: 0s !important;
     transition-delay: 0s !important;
     

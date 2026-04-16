@@ -6,6 +6,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientWrapper from "@/components/ClientWrapper";
+import Preloader from "@/components/Preloader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -181,6 +182,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${dmSans.variable} font-sans min-h-screen bg-[#F1EFE8] text-[#2C2C2A] antialiased flex flex-col`}
       >
+        <Preloader />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

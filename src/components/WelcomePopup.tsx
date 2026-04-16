@@ -130,7 +130,7 @@ export default function WelcomePopup() {
   if (isDismissed) return null;
 
   const inputBaseClass =
-    "w-full bg-white/70 border border-[#0F2744]/15 rounded-xl px-4 py-3 text-[#0F2744] placeholder-[#0F2744]/40 text-sm focus:outline-none focus:border-[#1D9E75] focus:bg-white focus:ring-2 focus:ring-[#1D9E75]/20 transition-all duration-200";
+    "w-full bg-white/70 border border-[#0F2744]/15 rounded-xl px-4 py-3 text-[#0F2744] placeholder-[#0F2744]/40 text-base md:text-sm focus:outline-none focus:border-[#1D9E75] focus:bg-white focus:ring-2 focus:ring-[#1D9E75]/20 transition-all duration-200";
 
   return (
     <div
@@ -152,7 +152,7 @@ export default function WelcomePopup() {
       `}</style>
       
       <div
-        className={`relative popup-content w-full max-w-lg bg-[#F1EFE8] rounded-3xl shadow-2xl overflow-hidden border border-white/20 transition-transform duration-500 ${
+        className={`relative popup-content w-full max-w-lg bg-[#F1EFE8] rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-white/20 transition-transform duration-500 ${
           isVisible ? "scale-100" : "scale-95"
         }`}
       >
@@ -169,19 +169,19 @@ export default function WelcomePopup() {
           <X className="w-5 h-5" />
         </button>
 
-        <div className="relative z-10 p-8 sm:p-10">
+        <div className="relative z-10 p-6 md:p-10">
           {/* Header */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#1D9E75]/10 border border-[#1D9E75]/20">
-              <Sparkles className="w-3.5 h-3.5 text-[#1D9E75]" />
-              <span className="text-[#1D9E75] text-[10px] font-bold uppercase tracking-wider">Limited Time Offer</span>
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-[#1D9E75]/10 border border-[#1D9E75]/20">
+              <Sparkles className="w-3 h-3 text-[#1D9E75]" />
+              <span className="text-[#1D9E75] text-[9px] font-bold uppercase tracking-wider">Limited Time Offer</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#0F2744] leading-tight mb-3">
-              🚀 Launch Your Digital <br/>
+            <h2 className="text-lg md:text-3xl font-black text-[#0F2744] leading-tight mb-2">
+              Launch Your Digital <br className="hidden sm:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D9E75] to-[#185FA5]">Presence Today!</span>
             </h2>
-            <p className="text-sm text-[#2C2C2A]/70 font-medium leading-relaxed">
-              Get a custom, high-performance website designed to double your leads. Starting at just <span className="text-[#0F2744] font-bold">₹10k</span>!
+            <p className="text-[13px] md:text-sm text-[#2C2C2A]/70 font-medium leading-relaxed">
+              Get a custom website starting at just <span className="text-[#0F2744] font-bold">₹10k</span>!
             </p>
           </div>
 
@@ -241,7 +241,7 @@ export default function WelcomePopup() {
 
             {/* Services */}
             <div>
-              <p className="text-[10px] uppercase font-bold text-[#0F2744]/40 mb-3 tracking-widest">Interested In:</p>
+              <p className="text-[11px] uppercase font-bold text-[#0F2744]/40 mb-3 tracking-widest">Interested In:</p>
               <div className="flex flex-wrap gap-2">
                 {["Business Website", "E-Commerce", "Web App"].map((service) => {
                   const isSelected = selectedServices.includes(service);
@@ -250,7 +250,7 @@ export default function WelcomePopup() {
                       key={service}
                       type="button"
                       onClick={() => handleServiceToggle(service)}
-                      className={`px-3 py-1.5 rounded-full text-[11px] font-bold transition-all duration-200 border ${
+                      className={`px-3 py-2 rounded-full text-[10px] md:text-[11px] font-bold transition-all duration-200 border ${
                         isSelected
                           ? "bg-[#1D9E75] border-[#1D9E75] text-white"
                           : "bg-white/50 border-[#0F2744]/10 text-[#0F2744]/60 hover:border-[#1D9E75]/40"
@@ -273,7 +273,7 @@ export default function WelcomePopup() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-[#0F2744] text-white rounded-xl py-4 text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#185FA5] transition-all duration-300 shadow-lg shadow-[#185FA5]/20 active:scale-[0.98] disabled:opacity-70"
+              className="w-full bg-[#0F2744] text-white rounded-xl py-3.5 md:py-4 text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#185FA5] transition-all duration-300 shadow-lg shadow-[#185FA5]/20 active:scale-[0.98] disabled:opacity-70"
             >
               {isSubmitting ? (
                 <Loader2 className="w-5 h-5 animate-spin" />

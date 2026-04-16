@@ -120,13 +120,13 @@ export default function ContactSection() {
   }
 
   const inputBaseClass =
-    "w-full bg-white/70 border border-[#0F2744]/15 rounded-xl px-4 py-3.5 text-[#0F2744] placeholder-[#0F2744]/40 text-sm focus:outline-none focus:border-[#1D9E75] focus:bg-white focus:ring-2 focus:ring-[#1D9E75]/20 transition-all duration-200";
+    "w-full bg-white/70 border border-[#0F2744]/15 rounded-xl px-4 py-3 md:py-3.5 text-[#0F2744] placeholder-[#0F2744]/40 text-base md:text-sm focus:outline-none focus:border-[#1D9E75] focus:bg-white focus:ring-2 focus:ring-[#1D9E75]/20 transition-all duration-200";
 
   return (
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative overflow-hidden py-16 md:py-36 px-4 sm:px-8 md:px-16 lg:px-24 bg-[#F1EFE8]"
+      className="relative overflow-hidden py-10 md:py-36 px-4 sm:px-8 md:px-16 lg:px-24 bg-[#F1EFE8]"
     >
       {/* Top Separator matching light theme */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#0F2744]/10 to-transparent" />
@@ -169,7 +169,7 @@ export default function ContactSection() {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header Block */}
         <div
-          className="max-w-2xl mx-auto text-center mb-16 animated-el"
+          className="max-w-2xl mx-auto text-center mb-10 md:mb-16 animated-el"
           style={{ animation: "fadeInScale 0.6s ease-out both" }}
         >
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
@@ -184,7 +184,7 @@ export default function ContactSection() {
 
           <h2
             id="contact-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] text-center mt-4"
+            className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] text-center mt-4"
           >
             Start Your Web Project —{" "}
             <span className="relative inline-block overflow-visible">
@@ -209,20 +209,18 @@ export default function ContactSection() {
           </p>
         </div>
 
-        {/* Two-Column Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-stretch">
+        {/* Two-Column Grid - Reversed on mobile to show form first */}
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 xl:gap-16 items-stretch">
           {/* Left Column: Contact Info */}
           <div
             className="animated-el flex flex-col justify-center h-full"
             style={{ animation: "popIn 0.8s ease-out 0.2s both" }}
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-[#0F2744] mb-3">
-              Contact Information
+            <h3 className="text-xl md:text-3xl font-bold text-[#0F2744] mb-3">
+              Other Ways to Connect
             </h3>
-            <p className="text-base text-[#2C2C2A]/75 font-medium leading-relaxed mb-10 max-w-sm">
-              Reach out through the channel that feels fastest for you. We reply
-              quickly, keep the first step simple, and map the full scope with
-              you on follow-up.
+            <p className="text-sm md:text-base text-[#2C2C2A]/75 font-medium leading-relaxed mb-8 md:mb-10 max-w-sm">
+              Prefer a direct message? Reach out through the channel that feels fastest for you.
             </p>
 
             <div className="space-y-7">
@@ -274,7 +272,7 @@ export default function ContactSection() {
                 className="text-[#1D9E75] w-4 h-4 sm:w-5 sm:h-5 animate-pulse shrink-0"
                 aria-hidden="true"
               />
-              <span className="text-[11px] sm:text-sm text-[#0F2744]/80 font-semibold uppercase tracking-wider">
+              <span className="text-[10px] sm:text-sm text-[#0F2744]/80 font-bold uppercase tracking-wider">
                 Response within 2 hours (Mon-Fri), custom plan within 24 hours.
               </span>
             </div>
@@ -285,12 +283,11 @@ export default function ContactSection() {
             className="animated-el flex flex-col h-full"
             style={{ animation: "popIn 0.8s ease-out 0.4s both" }}
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-[#0F2744] mb-2">
+            <h3 className="text-xl md:text-3xl font-bold text-[#0F2744] mb-2 text-center lg:text-left">
               Get a Quick Quote
             </h3>
-            <p className="text-sm text-[#2C2C2A]/75 font-medium mb-8">
-              Start with the essentials only. We&apos;ll collect your project
-              details and location in the follow-up.
+            <p className="text-sm text-[#2C2C2A]/75 font-medium mb-8 text-center lg:text-left">
+              Start with the essentials only. We&apos;ll collect more details in the follow-up.
             </p>
 
             <div className="bg-white/60 border border-white/60 backdrop-blur-md shadow-sm rounded-3xl p-6 sm:p-8 md:p-10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:bg-white hover:border-[#1D9E75]/30 transition-all duration-500 flex-1 flex flex-col">
@@ -305,7 +302,7 @@ export default function ContactSection() {
                   <div>
                     <label
                       htmlFor="fullName"
-                      className="text-[11px] uppercase tracking-widest text-[#0F2744]/60 mb-2 block font-bold"
+                      className="text-[10px] md:text-[11px] uppercase tracking-widest text-[#0F2744]/60 mb-2 block font-bold"
                     >
                       Full Name *
                     </label>
@@ -488,8 +485,8 @@ export default function ContactSection() {
                           aria-pressed={isSelected}
                           className={`transition-all duration-200 font-semibold ${
                             isSelected
-                              ? "bg-[#1D9E75]/15 border border-[#1D9E75] text-[#1D9E75] rounded-full px-4 py-1.5 text-xs shadow-sm"
-                              : "border border-[#0F2744]/15 bg-white/50 text-[#0F2744]/60 rounded-full px-4 py-1.5 text-xs cursor-pointer hover:border-[#1D9E75]/40 hover:text-[#0F2744] hover:bg-white"
+                              ? "bg-[#1D9E75]/15 border border-[#1D9E75] text-[#1D9E75] rounded-full px-4 py-2 text-[11px] md:text-xs shadow-sm"
+                              : "border border-[#0F2744]/15 bg-white/50 text-[#0F2744]/60 rounded-full px-4 py-2 text-[11px] md:text-xs cursor-pointer hover:border-[#1D9E75]/40 hover:text-[#0F2744] hover:bg-white"
                           }`}
                         >
                           {service}

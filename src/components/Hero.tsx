@@ -4,7 +4,6 @@ import { ArrowRight, Sparkles, Star, GitBranch, Terminal } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
-
   return (
     <section className="relative w-full flex items-center justify-center overflow-hidden bg-[#F1EFE8] pt-28 pb-12 sm:pt-32">
       {/* Aurora Ambient Orbs */}
@@ -139,7 +138,7 @@ export default function Hero() {
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative z-10 flex items-center gap-2">
                 <Sparkles size={16} />
-                Claim My ₹10K Website
+                Get Free Quote
               </span>
             </button>
             <a
