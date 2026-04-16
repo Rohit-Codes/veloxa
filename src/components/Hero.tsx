@@ -18,7 +18,13 @@ export default function Hero() {
       <div className="absolute top-[40%] left-[40%] w-[30%] h-[30%] rounded-full bg-[#185FA5]/10 blur-[100px] pointer-events-none mix-blend-multiply"></div>
 
       {/* Modern High-End Grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(#0F2744 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.4]"
+        style={{
+          backgroundImage: "radial-gradient(#0F2744 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      ></div>
 
       {/* --- ANIMATED CODING OBJECTS (Hidden on Mobile) --- */}
       {/* Sliding beam lines */}
@@ -34,7 +40,7 @@ export default function Hero() {
 
       {/* Floating curly braces — bottom-left background */}
       <div className="hidden lg:flex absolute bottom-[25%] left-[6%] items-center justify-center w-14 h-14 rounded-2xl bg-white/40 border border-[#185FA5]/12 backdrop-blur-md shadow-sm text-[#185FA5]/40 font-mono text-2xl font-black animate-[pan-y_28s_linear_infinite_alternate] select-none pointer-events-none">
-        {'{ }'}
+        {"{ }"}
       </div>
 
       {/* Rotating code slash — top-right background */}
@@ -49,7 +55,9 @@ export default function Hero() {
           <span className="w-2 h-2 rounded-full bg-[#FFBD2E]/50"></span>
           <span className="w-2 h-2 rounded-full bg-[#28C840]/50"></span>
         </div>
-        <span className="font-mono text-[10px] text-[#185FA5]/50">$ npm run dev</span>
+        <span className="font-mono text-[10px] text-[#185FA5]/50">
+          $ npm run dev
+        </span>
       </div>
 
       {/* Floating Glass Card — Build (top left) */}
@@ -58,8 +66,12 @@ export default function Hero() {
           <Terminal size={18} />
         </div>
         <div>
-          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">Build</p>
-          <p className="text-base font-black text-[#1D9E75] font-mono">✓ 1.2s</p>
+          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">
+            Build
+          </p>
+          <p className="text-base font-black text-[#1D9E75] font-mono">
+            ✓ 1.2s
+          </p>
         </div>
       </div>
 
@@ -69,16 +81,15 @@ export default function Hero() {
           <GitBranch size={20} />
         </div>
         <div>
-          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">Deployed</p>
+          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">
+            Deployed
+          </p>
           <p className="text-base font-black text-[#0F2744]">main ✓</p>
         </div>
       </div>
 
-
-
       {/* --- ALL CONTENT WRAPPER FOR VERTICAL CENTERING --- */}
       <div className="relative z-10 w-full flex flex-col items-center mt-4 sm:mt-10">
-        
         {/* MAIN HERO CONTENT */}
         <div className="w-full max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           {/* Value Badge */}
@@ -102,8 +113,10 @@ export default function Hero() {
 
           {/* Scaled-down Exaggerated Typography H1 */}
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6 opacity-0 animate-[fade-in-up_1s_ease-out_0.2s_forwards]">
-            <span className="block text-sm sm:text-base uppercase tracking-[0.3em] text-[#1D9E75] mb-3 font-bold">Expert Web Development Agency</span>
-            Transform Your Vision Into a {" "}
+            <span className="block text-sm sm:text-base uppercase tracking-[0.3em] text-[#1D9E75] mb-3 font-bold">
+              Expert Web Development Agency
+            </span>
+            Transform Your Vision Into a{" "}
             <span className="relative inline-block whitespace-nowrap">
               <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
               <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#185FA5] via-[#1D9E75] to-[#185FA5] bg-[length:200%_auto] animate-[gradient_4s_linear_infinite]">
@@ -114,19 +127,22 @@ export default function Hero() {
 
           {/* Much Shorter, Smaller Supporting Paragraph */}
           <p className="max-w-xl text-sm sm:text-base text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance opacity-0 animate-[fade-in-up_1s_ease-out_0.4s_forwards] px-2 sm:px-0">
-            We build high-performance, fast-loading Next.js websites that effortlessly convert your visitors into loyal customers.
+            We build high-performance, fast-loading Next.js websites that
+            effortlessly convert your visitors into loyal customers.
           </p>
 
           {/* Magnetic/Modern CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-12 sm:mb-16 opacity-0 animate-[fade-in-up_1s_ease-out_0.6s_forwards]">
             <button
-              onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent("open-welcome-popup"))
+              }
               className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.5)] text-sm cursor-pointer"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative z-10 flex items-center gap-2">
                 <Sparkles size={16} />
-                Claim My ₹10K Next.js Site
+                Claim My ₹10K Website
               </span>
             </button>
             <a
@@ -145,7 +161,6 @@ export default function Hero() {
 
         {/* --- TRUST & RATING ELEMENTS --- (Now positioned directly under buttons) */}
         <div className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-8 sm:pt-10 border-t border-[#0F2744]/5 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 opacity-0 animate-[fade-in-up_1s_ease-out_0.8s_forwards]">
-          
           <div className="flex flex-col items-center md:items-start gap-2 sm:gap-3">
             <div className="flex -space-x-2">
               {[
@@ -158,7 +173,9 @@ export default function Hero() {
                 <div
                   key={i}
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-[#F1EFE8] overflow-hidden relative shadow-sm flex items-center justify-center"
-                  style={{ background: `linear-gradient(135deg, ${client.from}, ${client.to})` }}
+                  style={{
+                    background: `linear-gradient(135deg, ${client.from}, ${client.to})`,
+                  }}
                   aria-label={`Client ${client.initials}`}
                 >
                   <span className="text-white font-bold text-[9px] sm:text-[10px] select-none">
@@ -182,19 +199,28 @@ export default function Hero() {
 
           {/* Trusted By Logos (Faux Typography Logos) */}
           <div className="flex flex-col items-center md:items-end gap-2 sm:gap-3 text-[#2C2C2A]/60 text-sm font-medium w-full md:w-auto">
-             <p className="tracking-widest uppercase text-[10px] sm:text-xs">Trusted by innovative teams</p>
-             <div className="flex items-center justify-center flex-wrap gap-4 sm:gap-6 md:gap-8 opacity-60 grayscale">
-               <span className="font-serif italic font-bold text-base sm:text-lg">Vortex.</span>
-               <span className="font-sans font-black tracking-tighter text-lg sm:text-xl">NEXA</span>
-               <span className="font-mono font-bold text-base sm:text-lg">&lt;Q/&gt;Labs</span>
-             </div>
+            <p className="tracking-widest uppercase text-[10px] sm:text-xs">
+              Trusted by innovative teams
+            </p>
+            <div className="flex items-center justify-center flex-wrap gap-4 sm:gap-6 md:gap-8 opacity-60 grayscale">
+              <span className="font-serif italic font-bold text-base sm:text-lg">
+                Vortex.
+              </span>
+              <span className="font-sans font-black tracking-tighter text-lg sm:text-xl">
+                NEXA
+              </span>
+              <span className="font-mono font-bold text-base sm:text-lg">
+                &lt;Q/&gt;Labs
+              </span>
+            </div>
           </div>
         </div>
-
       </div>
 
       {/* Custom CSS for Animations */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes fade-in {
           from { opacity: 0; }
           to { opacity: 1; }
@@ -236,7 +262,9 @@ export default function Hero() {
           0%, 100% { box-shadow: 0 0 5px rgba(29, 158, 117, 0.2); border-color: rgba(29, 158, 117, 0.3); }
           50% { box-shadow: 0 0 15px rgba(29, 158, 117, 0.5); border-color: rgba(29, 158, 117, 0.6); }
         }
-      `}} />
+      `,
+        }}
+      />
     </section>
   );
 }
