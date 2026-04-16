@@ -29,7 +29,7 @@ export default function Header() {
         <div
           className={`pointer-events-auto transition-all duration-500 rounded-full px-5 py-2 flex items-center justify-between ${
             isScrolled
-              ? "w-full max-w-4xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-sm"
+              ? "w-full max-w-4xl bg-white/5 backdrop-blur-md md:backdrop-blur-xl border border-white/10 shadow-sm"
               : "w-full max-w-6xl bg-transparent"
           }`}
         >

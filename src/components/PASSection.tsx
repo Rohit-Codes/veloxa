@@ -50,8 +50,8 @@ export default function PASSection() {
     <section id="about" className="relative w-full bg-[#F1EFE8] py-16 sm:py-24 overflow-hidden flex justify-center">
       
       {/* Background Ambience */}
-      <div className="absolute top-[0%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#185FA5]/15 blur-[100px] pointer-events-none mix-blend-multiply" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#1D9E75]/15 blur-[100px] pointer-events-none mix-blend-multiply" />
+      <div className="absolute top-[0%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#185FA5]/15 blur-[50px] md:blur-[100px] pointer-events-none mix-blend-multiply" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#1D9E75]/15 blur-[50px] md:blur-[100px] pointer-events-none mix-blend-multiply" />
       <div className="absolute inset-0 pointer-events-none opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(#0F2744 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
       <div ref={sectionRef.ref} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -152,11 +152,11 @@ export default function PASSection() {
                </div>
 
                {/* Ultra Modern Presentation Mockup */}
-               <div className="relative w-full flex-1 perspective-2000 group">
+               <div className="relative w-full flex-1 md:perspective-2000 group">
                  {/* Aura Glow */}
                 <div className="absolute -inset-10 bg-gradient-to-tr from-[#185FA5]/20 via-[#1D9E75]/20 to-[#185FA5]/10 rounded-[3rem] blur-2xl opacity-40 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
 
-                <div className="relative h-full min-h-[300px] sm:min-h-[400px] rounded-[1.5rem] border-[6px] border-white shadow-[0_20px_50px_-15px_rgba(15,39,68,0.2)] overflow-hidden bg-black transform rotate-x-[3deg] group-hover:rotate-x-0 group-hover:scale-[1.01] transition-all duration-500">
+                <div className="relative h-full min-h-[300px] sm:min-h-[400px] rounded-[1.5rem] border-[6px] border-white shadow-[0_20px_50px_-15px_rgba(15,39,68,0.2)] overflow-hidden bg-black md:transform md:rotate-x-[3deg] group-hover:rotate-x-0 group-hover:scale-[1.01] transition-all duration-500">
                   {/* Glass Header */}
                   <div className="bg-[#f2f2f2] w-full h-8 flex items-center px-3 gap-2 border-b border-black/5 z-10 relative">
                     <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57] shadow-sm" />

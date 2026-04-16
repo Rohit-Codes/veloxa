@@ -38,8 +38,8 @@ export default function CTASection() {
       className="relative w-full overflow-hidden py-10 sm:py-16 px-6 md:px-16 lg:px-24 bg-[#F1EFE8] flex justify-center"
     >
       {/* Background Ambience (matching PAS/Services) */}
-      <div className="absolute top-[0%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#185FA5]/10 blur-[120px] pointer-events-none mix-blend-multiply" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#1D9E75]/10 blur-[120px] pointer-events-none mix-blend-multiply" />
+      <div className="absolute top-[0%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#185FA5]/10 blur-[60px] md:blur-[120px] pointer-events-none mix-blend-multiply" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#1D9E75]/10 blur-[60px] md:blur-[120px] pointer-events-none mix-blend-multiply" />
 
       {/* Contained CTA Banner */}
       <div className="relative z-10 w-full max-w-6xl mx-auto bg-[#0F2744] rounded-[2rem] sm:rounded-[2.5rem] border-2 border-white/60 shadow-2xl p-8 sm:p-12 md:p-16 overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">

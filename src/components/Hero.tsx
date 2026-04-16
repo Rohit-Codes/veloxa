@@ -4,18 +4,13 @@ import { ArrowRight, Sparkles, Star, GitBranch, Terminal } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <section className="relative w-full flex items-center justify-center overflow-hidden bg-[#F1EFE8] pt-28 pb-12 sm:pt-32">
       {/* Aurora Ambient Orbs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#185FA5]/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#1D9E75]/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
-      <div className="absolute top-[40%] left-[40%] w-[30%] h-[30%] rounded-full bg-[#185FA5]/10 blur-[100px] pointer-events-none mix-blend-multiply"></div>
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#185FA5]/20 blur-[60px] md:blur-[120px] pointer-events-none mix-blend-multiply"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#1D9E75]/20 blur-[60px] md:blur-[120px] pointer-events-none mix-blend-multiply"></div>
+      <div className="absolute top-[40%] left-[40%] w-[30%] h-[30%] rounded-full bg-[#185FA5]/10 blur-[50px] md:blur-[100px] pointer-events-none mix-blend-multiply"></div>
 
       {/* Modern High-End Grid */}
       <div
@@ -226,8 +221,15 @@ export default function Hero() {
           to { opacity: 1; }
         }
         @keyframes fade-in-up {
-          from { opacity: 0; transform: translateY(20px); }
+          from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+          .animate-\[fade-in-up_0\.6s_ease-out_forwards\],
+          .animate-\[fade-in-up_0\.6s_ease-out_0\.1s_forwards\] {
+            animation: none !important;
+            opacity: 1 !important;
+          }
         }
         @keyframes float {
           0% { transform: translateY(0px); }

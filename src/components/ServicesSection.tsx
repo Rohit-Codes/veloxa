@@ -56,8 +56,8 @@ export default function ServicesSection() {
       className="relative w-full overflow-hidden py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#F1EFE8]"
     >
       {/* Soft ambient orbs matching ProjectShowcase */}
-      <div className="absolute top-0 left-[-8%] w-[45%] h-[70%] rounded-full bg-[#185FA5]/12 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-8%] w-[45%] h-[70%] rounded-full bg-[#1D9E75]/12 blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-[-8%] w-[45%] h-[70%] rounded-full bg-[#185FA5]/12 blur-[60px] md:blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-8%] w-[45%] h-[70%] rounded-full bg-[#1D9E75]/12 blur-[60px] md:blur-[120px] pointer-events-none" />
 
       {/* Subtle modern Grid Overlay */}
       <div
