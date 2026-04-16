@@ -14,72 +14,74 @@ export default function Hero() {
 
       {/* Modern High-End Grid */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.4]"
+        className="absolute inset-0 pointer-events-none opacity-[0.4] hidden md:block"
         style={{
           backgroundImage: "radial-gradient(#0F2744 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       ></div>
 
-      {/* --- ANIMATED CODING OBJECTS (Hidden on Mobile) --- */}
-      {/* Sliding beam lines */}
-      <div className="hidden md:block absolute top-[18%] left-0 w-48 h-[2px] bg-gradient-to-r from-transparent via-[#185FA5] to-transparent blur-[1px] opacity-60 animate-[slide-x_12s_ease-in-out_infinite_alternate]"></div>
-      <div className="hidden md:block absolute top-0 right-[22%] w-[2px] h-48 bg-gradient-to-b from-transparent via-[#1D9E75] to-transparent blur-[1px] opacity-60 animate-[slide-y_16s_ease-in-out_infinite_alternate]"></div>
+      {/* --- ANIMATED CODING OBJECTS (Removed on Mobile for Performance) --- */}
+      <div className="hidden md:block">
+        {/* Sliding beam lines */}
+        <div className="absolute top-[18%] left-0 w-48 h-[2px] bg-gradient-to-r from-transparent via-[#185FA5] to-transparent blur-[1px] opacity-60 animate-[slide-x_12s_ease-in-out_infinite_alternate]"></div>
+        <div className="absolute top-0 right-[22%] w-[2px] h-48 bg-gradient-to-b from-transparent via-[#1D9E75] to-transparent blur-[1px] opacity-60 animate-[slide-y_16s_ease-in-out_infinite_alternate]"></div>
 
-      {/* Floating HTML tag — top-left background */}
-      <div className="hidden lg:flex absolute top-[28%] left-[4%] items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#185FA5]/8 border border-[#185FA5]/15 backdrop-blur-sm text-[#185FA5]/50 font-mono text-xs animate-[float_14s_ease-in-out_infinite] select-none pointer-events-none">
-        <span className="text-[#1D9E75]/60">&lt;</span>
-        <span>div</span>
-        <span className="text-[#1D9E75]/60">/&gt;</span>
-      </div>
-
-      {/* Floating curly braces — bottom-left background */}
-      <div className="hidden lg:flex absolute bottom-[25%] left-[6%] items-center justify-center w-14 h-14 rounded-2xl bg-white/40 border border-[#185FA5]/12 backdrop-blur-md shadow-sm text-[#185FA5]/40 font-mono text-2xl font-black animate-[pan-y_28s_linear_infinite_alternate] select-none pointer-events-none">
-        {"{ }"}
-      </div>
-
-      {/* Rotating code slash — top-right background */}
-      <div className="hidden lg:flex absolute top-[12%] right-[5%] items-center justify-center w-12 h-12 rounded-xl bg-[#1D9E75]/8 border border-[#1D9E75]/15 backdrop-blur-sm text-[#1D9E75]/40 font-mono text-xl font-black animate-[spin-slow_20s_linear_infinite] select-none pointer-events-none">
-        /&gt;
-      </div>
-
-      {/* Terminal prompt dots — bottom-right background */}
-      <div className="hidden lg:flex absolute bottom-[18%] right-[4%] flex-col gap-1 px-3 py-2 rounded-lg bg-[#0F2744]/6 border border-[#0F2744]/10 backdrop-blur-sm animate-[float_18s_ease-in-out_infinite_reverse] select-none pointer-events-none">
-        <div className="flex gap-1">
-          <span className="w-2 h-2 rounded-full bg-[#FF5F57]/50"></span>
-          <span className="w-2 h-2 rounded-full bg-[#FFBD2E]/50"></span>
-          <span className="w-2 h-2 rounded-full bg-[#28C840]/50"></span>
+        {/* Floating HTML tag — top-left background */}
+        <div className="hidden lg:flex absolute top-[28%] left-[4%] items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#185FA5]/8 border border-[#185FA5]/15 backdrop-blur-sm text-[#185FA5]/50 font-mono text-xs animate-[float_14s_ease-in-out_infinite] select-none pointer-events-none">
+          <span className="text-[#1D9E75]/60">&lt;</span>
+          <span>div</span>
+          <span className="text-[#1D9E75]/60">/&gt;</span>
         </div>
-        <span className="font-mono text-[10px] text-[#185FA5]/50">
-          $ npm run dev
-        </span>
-      </div>
 
-      {/* Floating Glass Card — Build (top left) */}
-      <div className="absolute top-[15%] left-[2%] xl:left-[7%] hidden xl:flex items-center gap-3 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.05)] animate-[float_6s_ease-in-out_infinite] z-0">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0F2744]/8 text-[#0F2744]">
-          <Terminal size={18} />
+        {/* Floating curly braces — bottom-left background */}
+        <div className="hidden lg:flex absolute bottom-[25%] left-[6%] items-center justify-center w-14 h-14 rounded-2xl bg-white/40 border border-[#185FA5]/12 backdrop-blur-md shadow-sm text-[#185FA5]/40 font-mono text-2xl font-black animate-[pan-y_28s_linear_infinite_alternate] select-none pointer-events-none">
+          {"{ }"}
         </div>
-        <div>
-          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">
-            Build
-          </p>
-          <p className="text-base font-black text-[#1D9E75] font-mono">
-            ✓ 1.2s
-          </p>
-        </div>
-      </div>
 
-      {/* Floating Glass Card — Git Deploy (right) */}
-      <div className="absolute top-[45%] right-[2%] xl:right-[7%] hidden xl:flex items-center gap-3 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.05)] animate-[float_8s_ease-in-out_infinite_reverse] z-0">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1D9E75]/10 text-[#1D9E75]">
-          <GitBranch size={20} />
+        {/* Rotating code slash — top-right background */}
+        <div className="hidden lg:flex absolute top-[12%] right-[5%] items-center justify-center w-12 h-12 rounded-xl bg-[#1D9E75]/8 border border-[#1D9E75]/15 backdrop-blur-sm text-[#1D9E75]/40 font-mono text-xl font-black animate-[spin-slow_20s_linear_infinite] select-none pointer-events-none">
+          /&gt;
         </div>
-        <div>
-          <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">
-            Deployed
-          </p>
-          <p className="text-base font-black text-[#0F2744]">main ✓</p>
+
+        {/* Terminal prompt dots — bottom-right background */}
+        <div className="hidden lg:flex absolute bottom-[18%] right-[4%] flex-col gap-1 px-3 py-2 rounded-lg bg-[#0F2744]/6 border border-[#0F2744]/10 backdrop-blur-sm animate-[float_18s_ease-in-out_infinite_reverse] select-none pointer-events-none">
+          <div className="flex gap-1">
+            <span className="w-2 h-2 rounded-full bg-[#FF5F57]/50"></span>
+            <span className="w-2 h-2 rounded-full bg-[#FFBD2E]/50"></span>
+            <span className="w-2 h-2 rounded-full bg-[#28C840]/50"></span>
+          </div>
+          <span className="font-mono text-[10px] text-[#185FA5]/50">
+            $ npm run dev
+          </span>
+        </div>
+
+        {/* Floating Glass Card — Build (top left) */}
+        <div className="absolute top-[15%] left-[2%] xl:left-[7%] hidden xl:flex items-center gap-3 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.05)] animate-[float_6s_ease-in-out_infinite] z-0">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0F2744]/8 text-[#0F2744]">
+            <Terminal size={18} />
+          </div>
+          <div>
+            <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">
+              Build
+            </p>
+            <p className="text-base font-black text-[#1D9E75] font-mono">
+              ✓ 1.2s
+            </p>
+          </div>
+        </div>
+
+        {/* Floating Glass Card — Git Deploy (right) */}
+        <div className="absolute top-[45%] right-[2%] xl:right-[7%] hidden xl:flex items-center gap-3 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.05)] animate-[float_8s_ease-in-out_infinite_reverse] z-0">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1D9E75]/10 text-[#1D9E75]">
+            <GitBranch size={20} />
+          </div>
+          <div>
+            <p className="text-xs font-bold text-[#2C2C2A] uppercase tracking-wider">
+              Deployed
+            </p>
+            <p className="text-base font-black text-[#0F2744]">main ✓</p>
+          </div>
         </div>
       </div>
 
@@ -88,7 +90,7 @@ export default function Hero() {
         {/* MAIN HERO CONTENT */}
         <div className="w-full max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           {/* Value Badge */}
-          <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#1D9E75]/10 border border-[#1D9E75]/30 backdrop-blur-md animate-[pulse-green-glow_3s_ease-in-out_infinite] transition-all duration-300">
+          <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#1D9E75]/10 border border-[#1D9E75]/30 backdrop-blur-md md:animate-[pulse-green-glow_3s_ease-in-out_infinite] transition-all duration-300">
             <span className="flex h-1.5 w-1.5 rounded-full bg-[#1D9E75] shadow-[0_0_8px_#1D9E75]"></span>
             <span className="text-[#0a6e50] font-bold text-[10px] sm:text-[11px] tracking-wider">
               Starting at ₹10K
@@ -96,9 +98,9 @@ export default function Hero() {
           </div>
 
           {/* Modern Pill Tagline */}
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm animate-[fade-in_0.5s_ease-out_forwards]">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm md:animate-[fade-in_0.5s_ease-out_forwards]">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
+              <span className="md:animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
             </span>
             <span className="text-[#0F2744] font-medium text-[11px] sm:text-xs tracking-wide">
@@ -107,7 +109,7 @@ export default function Hero() {
           </div>
 
           {/* Scaled-down Exaggerated Typography H1 */}
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6 animate-[fade-in-up_0.6s_ease-out_forwards]">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6 md:animate-[fade-in-up_0.6s_ease-out_forwards]">
             <span className="block text-sm sm:text-base uppercase tracking-[0.3em] text-[#1D9E75] mb-3 font-bold">
               Expert Web Development Agency
             </span>
