@@ -16,7 +16,7 @@ export default function ServicesSection() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0, rootMargin: "0px 0px 400px 0px" }
     );
 
     const elements = sectionRef.current?.querySelectorAll(".observe-me");

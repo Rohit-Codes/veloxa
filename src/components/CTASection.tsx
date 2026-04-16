@@ -20,7 +20,7 @@ export default function CTASection() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0, rootMargin: "0px 0px 400px 0px" }
     );
 
     if (sectionRef.current) {

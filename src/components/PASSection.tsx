@@ -16,7 +16,7 @@ function useScrollReveal(threshold = 0.1) {
           observer.unobserve(entry.target);
         }
       },
-      { threshold, rootMargin: "0px" }
+      { threshold: 0, rootMargin: "0px 0px 400px 0px" }
     );
     
     if (ref.current) {
