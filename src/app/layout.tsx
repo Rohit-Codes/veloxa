@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, DM_Sans } from "next/font/google";
 import Script from "next/script";
+import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
-import WelcomePopup from "@/components/WelcomePopup";
+import ClientWrapper from "@/components/ClientWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: "Veloxa",
     images: [
       {
-        url: "/images/latest-mockup.png",
+        url: "/images/latest-mockup.webp",
         width: 1200,
         height: 630,
         alt: "Veloxa Website Development",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     title: "Veloxa - Fast, Professional Website Development",
     description:
       "Transform your ideas into high-performance websites with Veloxa.",
-    images: ["/images/latest-mockup.png"],
+    images: ["/images/latest-mockup.webp"],
   },
   verification: {
     google: "r9mcJ7nrMUxHMmc258vaExpIYjR6m546NMDABWAsAL4", // Replace with actual code from GSC
@@ -111,8 +111,8 @@ export default function RootLayout({
         "@id": "https://veloxa.tech/#organization",
         name: "Veloxa",
         url: "https://veloxa.tech",
-        logo: "https://veloxa.tech/images/logo_new.png",
-        image: "https://veloxa.tech/images/logo_new.png",
+        logo: "https://veloxa.tech/images/logo_new.webp",
+        image: "https://veloxa.tech/images/logo_new.webp",
         description:
           "Professional website development services and custom Next.js development.",
         slogan: "From idea to online — fast.",
@@ -198,8 +198,7 @@ export default function RootLayout({
         <main id="main-content" className="flex-grow">
           {children}
         </main>
-        <WhatsAppFloatingButton />
-        <WelcomePopup />
+        <ClientWrapper />
         <Footer />
       </body>
     </html>

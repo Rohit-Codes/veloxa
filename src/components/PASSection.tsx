@@ -167,12 +167,11 @@ export default function PASSection() {
                   {/* Splendid Center Stage Image */}
                   <div className="relative w-full h-[calc(100%-32px)]">
                     <Image 
-                      src="/images/latest-mockup.png" 
+                      src="/images/latest-mockup.webp" 
                       alt="Modern UI Website Upgrade" 
                       fill
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1200px) 100vw, 800px"
-                      priority
                     />
                     
                     {/* Modern Overlay Badges */}

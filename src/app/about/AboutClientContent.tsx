@@ -325,7 +325,7 @@ export default function AboutClientContent() {
               className="absolute top-0 left-0 lg:left-4 w-[75%] aspect-[4/5] object-cover rounded-tr-[2rem] rounded-bl-[2rem] rounded-tl-[0.5rem] rounded-br-[0.5rem] border-2 border-[#1D9E75]/20 shadow-[0_32px_64px_rgba(0,0,0,0.1)] overflow-hidden animate-[floatSlow_8s_ease-in-out_infinite]"
             >
               <Image 
-                src="/images/about-team.png"
+                src="/images/about-team.webp"
                 alt="Veloxa web development team collaborating in a modern office"
                 fill
                 priority
@@ -348,7 +348,7 @@ export default function AboutClientContent() {
               style={{ outline: '2px solid rgba(24,95,165,0.15)', outlineOffset: '0px' }}
             >
               <Image 
-                src="/images/about-work.png"
+                src="/images/about-work.webp"
                 alt="Designer working on a modern web UI"
                 fill
                 className="object-cover"

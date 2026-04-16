@@ -41,7 +41,7 @@ export default function Header() {
           >
             <div className="relative h-13 w-28 md:w-40">
               <Image
-                src="/images/logo_new.png"
+                src="/images/logo_new.webp"
                 alt="Veloxa Logo"
                 fill
                 sizes="(max-width: 768px) 112px, 144px"

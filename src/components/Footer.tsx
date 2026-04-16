@@ -72,7 +72,7 @@ export default function Footer() {
             <Link href="/" className="mb-6 inline-block w-fit">
               <div className="relative h-16 w-48">
                 <Image
-                  src="/images/logo_new.png"
+                  src="/images/logo_new.webp"
                   alt="Veloxa Logo"
                   fill
                   sizes="(max-width: 768px) 192px, 192px"
