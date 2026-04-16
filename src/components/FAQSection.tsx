@@ -41,27 +41,6 @@ const faqData = [
 
 export default function FAQSection() {
 	const [openIndex, setOpenIndex] = useState<number>(0);
-	const sectionRef = useRef<HTMLElement>(null);
-
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add("intersected");
-						observer.unobserve(entry.target);
-					}
-				});
-			},
-			{ threshold: 0, rootMargin: "0px 0px 400px 0px" },
-		);
-
-		if (sectionRef.current) {
-			observer.observe(sectionRef.current);
-		}
-
-		return () => observer.disconnect();
-	}, []);
 
 	const faqSchema = {
 		"@context": "https://schema.org",
@@ -78,10 +57,9 @@ export default function FAQSection() {
 
 	return (
 		<section
-			ref={sectionRef}
 			id="faq"
 			aria-labelledby="faq-heading"
-			className="relative w-full overflow-hidden bg-[#F1EFE8] py-20 md:py-28 px-6 md:px-16 lg:px-24 ui-section"
+			className="relative w-full overflow-hidden bg-[#F1EFE8] py-20 md:py-28 px-6 md:px-16 lg:px-24"
 		>
 			<script
 				type="application/ld+json"
@@ -105,7 +83,7 @@ export default function FAQSection() {
 				{/* Main Heading */}
 				<h2
 					id="faq-heading"
-					className="anim-heading opacity-0 translate-y-8 transition-all duration-700 ease-out text-4xl sm:text-5xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] text-center mb-12 md:mb-16"
+					className="text-4xl sm:text-5xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] text-center mb-12 md:mb-16"
 				>
 					FAQ
 				</h2>
@@ -147,10 +125,10 @@ export default function FAQSection() {
 										</span>
 									</div>
 									<Plus
-										className={`faq-icon w-5 h-5 text-[#1D9E75] transition-transform duration-300 flex-shrink-0 ${
-											isOpen ? "rotate-45" : "rotate-0"
-										}`}
-										aria-hidden="true"
+									className={`w-5 h-5 text-[#1D9E75] transition-transform duration-300 flex-shrink-0 ${
+										isOpen ? "rotate-45" : "rotate-0"
+									}`}
+									aria-hidden="true"
 									/>
 								</button>
 
@@ -207,21 +185,6 @@ export default function FAQSection() {
           .faq-answer-inner {
             overflow: hidden;
             min-height: 0;
-          }
-          .ui-section.intersected .anim-pill {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-          }
-          .ui-section.intersected .anim-heading {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-          }
-          @media (prefers-reduced-motion: reduce) {
-            .faq-answer { transition: none !important; }
-            .faq-icon { transition: none !important; }
-            .anim-heading {
-              transition: none !important;
-            }
           }
         `,
 				}}

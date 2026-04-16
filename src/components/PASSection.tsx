@@ -54,9 +54,9 @@ export default function PASSection() {
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#1D9E75]/15 blur-[50px] md:blur-[100px] pointer-events-none mix-blend-multiply" />
       <div className="absolute inset-0 pointer-events-none opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(#0F2744 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div ref={sectionRef.ref} className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         
-        <div className={`grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-12 transition-all duration-1000 transform ${sectionRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-12">
           
           {/* ======================================= */}
           {/* LEFT COL: PROBLEM & AGITATION (5 Cols)  */}

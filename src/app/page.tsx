@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 import ProjectShowcase from "@/components/ProjectShowcase";
 import PASSection from "@/components/PASSection";

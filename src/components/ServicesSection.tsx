@@ -5,26 +5,6 @@ import Link from "next/link";
 import { ArrowRight, Monitor, TrendingUp, ShoppingBag } from "lucide-react";
 
 export default function ServicesSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.setAttribute("data-intersected", "true");
-          }
-        });
-      },
-      { threshold: 0, rootMargin: "0px 0px 400px 0px" }
-    );
-
-    const elements = sectionRef.current?.querySelectorAll(".observe-me");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   const industries = [
     "SaaS & Tech Startups",
     "E-Commerce & Retail",
@@ -50,7 +30,6 @@ export default function ServicesSection() {
 
   return (
     <section
-      ref={sectionRef}
       id="services"
       aria-labelledby="services-heading"
       className="relative w-full overflow-hidden py-20 md:py-28 px-6 md:px-16 lg:px-24 bg-[#F1EFE8]"
@@ -72,7 +51,7 @@ export default function ServicesSection() {
         {/* LEFT COLUMN */}
         <div className="flex flex-col items-start lg:w-[45%]">
           {/* Modern Pill Sub-label */}
-          <div className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
@@ -85,7 +64,7 @@ export default function ServicesSection() {
           {/* Heading */}
           <h2
             id="services-heading"
-            className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out delay-[100ms] text-4xl sm:text-5xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] max-w-md mb-8"
+            className="text-4xl sm:text-5xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] max-w-md mb-8"
           >
             Websites That Drive{" "}
             <span className="relative inline-block whitespace-nowrap">
@@ -106,7 +85,7 @@ export default function ServicesSection() {
           </h2>
 
           {/* Industry Marquee */}
-          <div className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out delay-[200ms] w-full max-w-xs mb-12">
+          <div className="w-full max-w-xs mb-12">
             <p className="text-xs uppercase tracking-widest text-[#0F2744]/40 mb-3 font-semibold">
               Industries We Work With
             </p>
@@ -142,7 +121,7 @@ export default function ServicesSection() {
           {/* CTA Button */}
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
-            className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out delay-[300ms] group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.3)] text-sm cursor-pointer"
+            className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.3)] text-sm cursor-pointer"
           >
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="relative z-10 flex items-center gap-2">
@@ -155,7 +134,7 @@ export default function ServicesSection() {
         {/* RIGHT COLUMN */}
         <div className="flex flex-col gap-4 pt-8 lg:pt-0 lg:w-[50%]">
           {/* Card 1 */}
-          <div className="observe-me opacity-0 translate-x-12 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-x-0 transition-all duration-700 ease-out delay-[200ms] group relative flex flex-col sm:flex-row items-start gap-3 sm:gap-6 p-5 sm:p-6 rounded-2xl bg-white/60 border border-white/60 backdrop-blur-md shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:bg-white hover:border-[#1D9E75]/30">
+          <div className="group relative flex flex-col sm:flex-row items-start gap-3 sm:gap-6 p-5 sm:p-6 rounded-2xl bg-white/60 border border-white/60 backdrop-blur-md shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:bg-white hover:border-[#1D9E75]/30">
             <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[#185FA5] to-[#1D9E75] rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <div className="shrink-0 w-full sm:w-[180px]">
@@ -179,7 +158,7 @@ export default function ServicesSection() {
           </div>
 
           {/* Card 2 */}
-          <div className="observe-me opacity-0 translate-x-12 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-x-0 transition-all duration-700 ease-out delay-[300ms] group relative flex flex-col sm:flex-row items-start gap-3 sm:gap-6 p-5 sm:p-6 rounded-2xl bg-white/60 border border-white/60 backdrop-blur-md shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:bg-white hover:border-[#1D9E75]/30">
+          <div className="group relative flex flex-col sm:flex-row items-start gap-3 sm:gap-6 p-5 sm:p-6 rounded-2xl bg-white/60 border border-white/60 backdrop-blur-md shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:bg-white hover:border-[#1D9E75]/30">
             <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[#1D9E75] to-[#185FA5] rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <div className="shrink-0 w-full sm:w-[180px]">
@@ -203,7 +182,7 @@ export default function ServicesSection() {
           </div>
 
           {/* Card 3 */}
-          <div className="observe-me opacity-0 translate-x-12 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-x-0 transition-all duration-700 ease-out delay-[400ms] group relative flex flex-col sm:flex-row items-start gap-3 sm:gap-6 p-5 sm:p-6 rounded-2xl bg-white/60 border border-white/60 backdrop-blur-md shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:bg-white hover:border-[#1D9E75]/30">
+          <div className="group relative flex flex-col sm:flex-row items-start gap-3 sm:gap-6 p-5 sm:p-6 rounded-2xl bg-white/60 border border-white/60 backdrop-blur-md shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:bg-white hover:border-[#1D9E75]/30">
             <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[#185FA5] to-[#1D9E75] rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <div className="shrink-0 w-full sm:w-[180px]">
@@ -242,12 +221,6 @@ export default function ServicesSection() {
         }
         @media (prefers-reduced-motion: reduce) {
           .marquee-vertical { animation: none !important; }
-          .observe-me { 
-            opacity: 1 !important; 
-            transform: none !important; 
-            transition: none !important; 
-            animation: none !important; 
-          }
         }
       `}} />
     </section>

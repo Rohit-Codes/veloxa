@@ -82,19 +82,17 @@ const testimonials = [
 const AnimatedCounter = memo(({ 
   target, 
   label, 
-  inView,
   delay
 }: { 
   target: number; 
   label: string; 
-  inView: boolean;
   delay: string;
 }) => {
-  const count = useCountUp(target, 2000, inView);
+  const count = useCountUp(target, 2000, true);
 
   return (
     <div 
-      className={`observe-me opacity-0 translate-y-4 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out ${delay} relative flex flex-col group`}
+      className={`relative flex flex-col group`}
       aria-label={`${target} ${label}`}
     >
       <div className="text-4xl md:text-5xl font-black text-[#0F2744] mb-1">
@@ -109,36 +107,8 @@ const AnimatedCounter = memo(({
 AnimatedCounter.displayName = 'AnimatedCounter';
 
 export default function ClientTrustSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [inView, setInView] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-
-  // Intersection Observer for Scroll Animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setInView(true);
-            const elements = entry.target.querySelectorAll(".observe-me");
-            elements.forEach((el) => {
-              el.setAttribute("data-intersected", "true");
-            });
-            // Once triggered, we can stop observing
-            if (sectionRef.current) {
-              observer.unobserve(sectionRef.current);
-            }
-          }
-        });
-      },
-      { threshold: 0, rootMargin: "0px 0px 400px 0px" }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    
-    return () => observer.disconnect();
-  }, []);
 
   // Marquee Auto-Advance Interval
   useEffect(() => {
@@ -153,7 +123,6 @@ export default function ClientTrustSection() {
 
   return (
     <section 
-      ref={sectionRef}
       id="about"
       aria-labelledby="trust-heading"
       className="relative w-full overflow-hidden bg-[#F1EFE8] py-16 md:py-28 px-4 sm:px-8 md:px-16 lg:px-24"
@@ -176,7 +145,7 @@ export default function ClientTrustSection() {
         {/* Left Column */}
         <div className="flex flex-col items-start justify-center">
           {/* Micro Pill */}
-          <div className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
@@ -188,7 +157,7 @@ export default function ClientTrustSection() {
 
           <h2 
             id="trust-heading"
-            className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out delay-[100ms] text-3xl sm:text-4xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] max-w-md mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] max-w-md mb-6"
           >
             <span className="relative inline-block whitespace-nowrap">
               <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
@@ -207,7 +176,7 @@ export default function ClientTrustSection() {
             for Real Businesses Across India
           </h2>
 
-          <p className="observe-me opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out delay-[200ms] text-base md:text-lg text-[#2C2C2A]/75 font-medium leading-relaxed max-w-md mb-8">
+          <p className="text-base md:text-lg text-[#2C2C2A]/75 font-medium leading-relaxed max-w-md mb-8">
             We build high-performance, SEO-optimized websites that drive long-term growth for startups and brands across India. Our clients' success speaks for itself.
           </p>
 
@@ -218,13 +187,11 @@ export default function ClientTrustSection() {
             <AnimatedCounter 
               target={120} 
               label="Projects Delivered" 
-              inView={inView}
               delay="delay-[300ms]"
             />
             <AnimatedCounter 
               target={95} 
               label="Happy Clients" 
-              inView={inView}
               delay="delay-[400ms]"
             />
           </div>
@@ -331,7 +298,6 @@ export default function ClientTrustSection() {
 
         @media (prefers-reduced-motion: reduce) {
           .testimonial-card { transition: opacity 0.1s !important; transform: none !important; }
-          .observe-me { transition: opacity 0.1s !important; transform: none !important; }
           .progress-bar { animation: none !important; width: 100%; }
         }
       `}} />

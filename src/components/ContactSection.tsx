@@ -169,8 +169,7 @@ export default function ContactSection() {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header Block */}
         <div
-          className="max-w-2xl mx-auto text-center mb-10 md:mb-16 animated-el"
-          style={{ animation: "fadeInScale 0.6s ease-out both" }}
+          className="max-w-2xl mx-auto text-center mb-10 md:mb-16"
         >
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
             <span className="relative flex h-2 w-2">
@@ -213,8 +212,7 @@ export default function ContactSection() {
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 xl:gap-16 items-stretch">
           {/* Left Column: Contact Info */}
           <div
-            className="animated-el flex flex-col justify-center h-full"
-            style={{ animation: "popIn 0.8s ease-out 0.2s both" }}
+            className="flex flex-col justify-center h-full"
           >
             <h3 className="text-xl md:text-3xl font-bold text-[#0F2744] mb-3">
               Other Ways to Connect
@@ -280,8 +278,7 @@ export default function ContactSection() {
 
           {/* Right Column: Contact Form */}
           <div
-            className="animated-el flex flex-col h-full"
-            style={{ animation: "popIn 0.8s ease-out 0.4s both" }}
+            className="flex flex-col h-full"
           >
             <h3 className="text-xl md:text-3xl font-bold text-[#0F2744] mb-2 text-center lg:text-left">
               Get a Quick Quote

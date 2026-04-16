@@ -5,34 +5,8 @@ import Link from "next/link";
 import { ArrowRight, Check, Zap } from "lucide-react";
 
 export default function CTASection() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.setAttribute("data-intersected", "true");
-            const elements = entry.target.querySelectorAll(".observe-me");
-            elements.forEach((el) => {
-              el.setAttribute("data-intersected", "true");
-            });
-          }
-        });
-      },
-      { threshold: 0, rootMargin: "0px 0px 400px 0px" }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id="cta"
       aria-labelledby="cta-heading"
       className="relative w-full overflow-hidden py-10 sm:py-16 px-6 md:px-16 lg:px-24 bg-[#F1EFE8] flex justify-center"
@@ -52,7 +26,7 @@ export default function CTASection() {
         <div className="relative z-10 flex flex-col items-center text-center lg:items-start lg:text-left flex-1 max-w-2xl">
           
           {/* Micro Label Pill */}
-          <div className="observe-me opacity-0 -translate-y-4 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
@@ -64,7 +38,7 @@ export default function CTASection() {
 
           <h2 
             id="cta-heading"
-            className="observe-me opacity-0 scale-95 data-[intersected=true]:opacity-100 data-[intersected=true]:scale-100 transition-all duration-700 ease-out delay-150 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-[#F1EFE8] mb-5 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-[#F1EFE8] mb-5 tracking-tight"
           >
             Your Next Website Is{" "}
             <span 
@@ -81,12 +55,12 @@ export default function CTASection() {
             </span>
           </h2>
 
-          <p className="observe-me opacity-0 translate-y-4 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out delay-300 text-base md:text-lg text-[#F1EFE8]/70 leading-relaxed max-w-[90%] lg:max-w-xl">
+          <p className="text-base md:text-lg text-[#F1EFE8]/70 leading-relaxed max-w-[90%] lg:max-w-xl">
             Whether you&apos;re a startup with a bold idea or an established business ready to upgrade your digital presence, Veloxa delivers high-performance websites that rank, convert, and scale — without the wait.
           </p>
 
           {/* Trust Micro-line */}
-          <div className="observe-me opacity-0 data-[intersected=true]:opacity-100 transition-opacity duration-700 delay-500 mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-x-4 gap-y-2 text-xs text-[#F1EFE8]/50 tracking-wide font-medium">
+          <div className="mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-x-4 gap-y-2 text-xs text-[#F1EFE8]/50 tracking-wide font-medium">
             <span className="flex items-center gap-1.5 whitespace-nowrap">
               <Check className="w-3.5 h-3.5 text-[#1D9E75]" /> No contracts.
             </span>
@@ -102,7 +76,7 @@ export default function CTASection() {
 
         {/* Right CTA / Interactive Side */}
         <div className="relative z-10 flex flex-col items-center justify-center lg:shrink-0">
-          <div className="observe-me opacity-0 scale-90 data-[intersected=true]:opacity-100 data-[intersected=true]:scale-100 transition-all duration-700 delay-300 w-full">
+          <div className="w-full">
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
               aria-label="Get your website quote with Veloxa"
@@ -121,7 +95,7 @@ export default function CTASection() {
 
           {/* Floating Stat Badge relative to CTA Button */}
           <div 
-            className="observe-me opacity-0 data-[intersected=true]:opacity-100 transition-all duration-1000 delay-700 absolute -bottom-10 -right-4 sm:-right-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2.5 flex items-center gap-2 pointer-events-none"
+            className="absolute -bottom-10 -right-4 sm:-right-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2.5 flex items-center gap-2 pointer-events-none"
             style={{ animation: "floatWobble 6s ease-in-out infinite", willChange: "transform" }}
             aria-hidden="true"
           >
@@ -152,12 +126,12 @@ export default function CTASection() {
           50% { transform: translate3d(0, -8px, 0) rotate(2deg); }
         }
 
-        .cta-button[data-intersected="true"] {
+        .cta-button {
           animation: buttonPulse 2.5s ease-out 1s infinite;
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .cta-button[data-intersected="true"] { animation: none !important; box-shadow: none !important; }
+          .cta-button { animation: none !important; box-shadow: none !important; }
           .animate-ping { animation: none !important; }
         }
       `}} />
