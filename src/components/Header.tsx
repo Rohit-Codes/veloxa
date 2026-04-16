@@ -39,7 +39,7 @@ export default function Header() {
             aria-label="Veloxa - Website Development Agency"
             className="flex items-center"
           >
-            <div className="relative h-13 w-28 md:w-40">
+            <div className="relative h-14 w-32 md:w-40">
               <Image
                 src="/images/logo_new.webp"
                 alt="Veloxa Logo"

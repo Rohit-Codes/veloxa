@@ -93,7 +93,7 @@ export default function Hero() {
         {/* MAIN HERO CONTENT */}
         <div className="w-full max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           {/* Value Badge */}
-          <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#1D9E75]/10 border border-[#1D9E75]/30 backdrop-blur-md opacity-0 animate-[fade-in_1s_ease-out_forwards,pulse-green-glow_3s_ease-in-out_infinite] transition-all duration-300">
+          <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#1D9E75]/10 border border-[#1D9E75]/30 backdrop-blur-md animate-[pulse-green-glow_3s_ease-in-out_infinite] transition-all duration-300">
             <span className="flex h-1.5 w-1.5 rounded-full bg-[#1D9E75] shadow-[0_0_8px_#1D9E75]"></span>
             <span className="text-[#0a6e50] font-bold text-[10px] sm:text-[11px] tracking-wider">
               Starting at ₹10K
@@ -101,7 +101,7 @@ export default function Hero() {
           </div>
 
           {/* Modern Pill Tagline */}
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm opacity-0 animate-[fade-in_1s_ease-out_forwards]">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm animate-[fade-in_0.5s_ease-out_forwards]">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
@@ -112,7 +112,7 @@ export default function Hero() {
           </div>
 
           {/* Scaled-down Exaggerated Typography H1 */}
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6 opacity-0 animate-[fade-in-up_1s_ease-out_0.2s_forwards]">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6 animate-[fade-in-up_0.6s_ease-out_forwards]">
             <span className="block text-sm sm:text-base uppercase tracking-[0.3em] text-[#1D9E75] mb-3 font-bold">
               Expert Web Development Agency
             </span>
@@ -126,13 +126,13 @@ export default function Hero() {
           </h1>
 
           {/* Much Shorter, Smaller Supporting Paragraph */}
-          <p className="max-w-xl text-sm sm:text-base text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance opacity-0 animate-[fade-in-up_1s_ease-out_0.4s_forwards] px-2 sm:px-0">
+          <p className="max-w-xl text-sm sm:text-base text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance animate-[fade-in-up_0.6s_ease-out_0.1s_forwards] px-2 sm:px-0">
             We build high-performance, fast-loading Next.js websites that
             effortlessly convert your visitors into loyal customers.
           </p>
 
           {/* Magnetic/Modern CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-12 sm:mb-16 opacity-0 animate-[fade-in-up_1s_ease-out_0.6s_forwards]">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-12 sm:mb-16 animate-[fade-in-up_0.6s_ease-out_0.2s_forwards]">
             <button
               onClick={() =>
                 window.dispatchEvent(new CustomEvent("open-welcome-popup"))
@@ -154,13 +154,13 @@ export default function Hero() {
             </a>
           </div>
 
-          <p className="text-xs sm:text-sm text-[#0F2744]/55 font-semibold -mt-7 sm:-mt-10 mb-12 sm:mb-16 opacity-0 animate-[fade-in-up_1s_ease-out_0.7s_forwards]">
+          <p className="text-xs sm:text-sm text-[#0F2744]/55 font-semibold -mt-7 sm:-mt-10 mb-12 sm:mb-16 animate-[fade-in-up_0.6s_ease-out_0.3s_forwards]">
             Response within 2 hours (Mon-Fri)
           </p>
         </div>
 
         {/* --- TRUST & RATING ELEMENTS --- (Now positioned directly under buttons) */}
-        <div className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-8 sm:pt-10 border-t border-[#0F2744]/5 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 opacity-0 animate-[fade-in-up_1s_ease-out_0.8s_forwards]">
+        <div className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-8 sm:pt-10 border-t border-[#0F2744]/5 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 animate-[fade-in-up_0.6s_ease-out_0.4s_forwards]">
           <div className="flex flex-col items-center md:items-start gap-2 sm:gap-3">
             <div className="flex -space-x-2">
               {[
