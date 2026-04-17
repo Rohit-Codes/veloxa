@@ -38,9 +38,9 @@ export default function CTASection() {
 
           <h2 
             id="cta-heading"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-[#F1EFE8] mb-5 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-[1.1] text-[#F1EFE8] mb-5 tracking-tight"
           >
-            Your Next Website Is{" "}
+            Ready to Turn Your Website Into a{" "}
             <span 
               className="relative inline-block text-transparent bg-clip-text mt-1 pb-1"
                style={{
@@ -51,12 +51,12 @@ export default function CTASection() {
                 WebkitTextFillColor: "transparent"
               }}
             >
-              One Conversation Away
+              Lead Machine?
             </span>
           </h2>
 
           <p className="text-base md:text-lg text-[#F1EFE8]/70 leading-relaxed max-w-[90%] lg:max-w-xl">
-            Whether you&apos;re a startup with a bold idea or an established business ready to upgrade your digital presence, Veloxa delivers high-performance websites that rank, convert, and scale — without the wait.
+            Stop losing customers to outdated design. Join 50+ businesses that scaled their growth with a high-performance Veloxa website.
           </p>
 
           {/* Trust Micro-line */}
@@ -84,12 +84,12 @@ export default function CTASection() {
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10 flex items-center gap-2 tracking-wide">
-                Launch My Site in 14 Days
+                Get My Free Website Plan
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-200" />
               </span>
             </button>
-            <p className="mt-3 text-xs sm:text-sm text-[#F1EFE8]/65 font-semibold text-center">
-              Get a custom plan in 24 hours
+            <p className="mt-3 text-xs sm:text-sm text-red-400 font-bold text-center">
+              Only 3 slots left for April 2024
             </p>
           </div>
 

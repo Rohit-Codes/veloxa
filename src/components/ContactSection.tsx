@@ -87,23 +87,12 @@ export default function ContactSection() {
       setShowSuccess(true);
       reset();
 
-      // ---------------------------------------------------------------
-      // GA4 Conversion Tracking (linked to Google Ads via GA4 data source)
-      // ---------------------------------------------------------------
-      // "generate_lead" is Google's recommended standard event for lead forms.
-      // Because you linked GA4 (G-682G153K5S) as a data source in Google Ads,
-      // this event is automatically imported as a conversion in your Ads account.
-      // No GTM tag or gtag conversion snippet needed.
-      // ---------------------------------------------------------------
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "generate_lead", {
-          // Standard GA4 recommended parameters for lead events
+      if (typeof window !== "undefined" && "gtag" in window) {
+        (window as { gtag: Function }).gtag("event", "generate_lead", {
           currency: "INR",
-          value: 1,                                                 // Relative lead value (adjust to reflect avg deal size)
-          // Custom dimensions for GA4 reporting
+          value: 1,
           form_name: "contact_form",
           services_selected: data.services?.join(", ") || "None",
-          user_location: "Collected in follow-up",
         });
       }
     } catch (err) {
@@ -171,40 +160,25 @@ export default function ContactSection() {
         <div
           className="max-w-2xl mx-auto text-center mb-10 md:mb-16"
         >
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-red-100/80 backdrop-blur-sm border border-red-200 shadow-sm">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>
-            <span className="text-[#0F2744] font-medium text-[11px] sm:text-xs tracking-widest uppercase">
-              Quick Quote
+            <span className="text-red-700 font-bold text-[10px] sm:text-xs tracking-widest uppercase">
+              Only 3 project slots left this month
             </span>
           </div>
 
           <h2
             id="contact-heading"
-            className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] text-center mt-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] text-center mt-4"
           >
-            Start Your Web Project —{" "}
-            <span className="relative inline-block overflow-visible">
-              <span
-                className="relative text-transparent bg-clip-text"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #1D9E75, #185FA5, #1D9E75)",
-                  backgroundSize: "200% auto",
-                  animation: "gradientShift 4s ease-in-out infinite",
-                }}
-              >
-                Get Your Website Quote
-              </span>
-            </span>
+            Ready to <span className="text-[#1D9E75]">See Your Pricing?</span>
           </h2>
 
-          <p className="text-sm border-0 sm:text-base md:text-lg text-[#2C2C2A]/75 font-medium leading-relaxed text-center max-w-xl mx-auto mt-6 px-2 sm:px-4">
-            Share your contact details and the type of website you need. We&apos;ll
-            follow up within 24 hours to collect project details, location, and
-            the rest of your requirements.
+          <p className="text-base sm:text-lg text-[#2C2C2A]/75 font-medium leading-relaxed text-center max-w-xl mx-auto mt-6 px-2 sm:px-4">
+            Get your custom website plan in 24 hours. Start with the essentials below — it takes less than 30 seconds.
           </p>
         </div>
 
@@ -301,7 +275,7 @@ export default function ContactSection() {
                       htmlFor="fullName"
                       className="text-[10px] md:text-[11px] uppercase tracking-widest text-[#0F2744]/60 mb-2 block font-bold"
                     >
-                      Full Name *
+                      Your Name *
                     </label>
                     <div className="relative">
                       <input
@@ -348,7 +322,7 @@ export default function ContactSection() {
                     )}
                   </div>
 
-                  {/* Field 2: Email */}
+                  {/* Field 2: Email Address */}
                   <div>
                     <label
                       htmlFor="email"
@@ -360,7 +334,7 @@ export default function ContactSection() {
                       <input
                         type="email"
                         id="email"
-                        placeholder="e.g. hello@yourcompany.in"
+                        placeholder="e.g. hello@yourbrand.in"
                         autoComplete="email"
                         aria-required="true"
                         aria-describedby={
@@ -401,13 +375,13 @@ export default function ContactSection() {
                     )}
                   </div>
 
-                  {/* Field 3: Phone Number */}
-                  <div>
+                  {/* Field 3: WhatsApp Number */}
+                  <div className="md:col-span-2">
                     <label
                       htmlFor="phone"
                       className="text-[11px] uppercase tracking-widest text-[#0F2744]/60 mb-2 block font-bold"
                     >
-                      Phone Number *
+                      WhatsApp Number *
                     </label>
                     <div className="relative">
                       <div className="absolute left-0 top-0 bottom-0 flex items-center px-3 border-r border-[#0F2744]/10 text-xs font-semibold text-[#0F2744]/50 bg-white/50 rounded-l-xl">
@@ -456,13 +430,12 @@ export default function ContactSection() {
                       </span>
                     )}
                   </div>
-
                 </div>
 
-                {/* Field 4: Services Interested In */}
+                {/* Field 3: Services Interested In */}
                 <div>
                   <label className="text-[11px] uppercase tracking-widest text-[#0F2744]/60 mb-3 block font-bold">
-                    Services You Need
+                    What can we help you with?
                   </label>
                   <div className="flex flex-wrap gap-2">
                     {[
@@ -470,8 +443,6 @@ export default function ContactSection() {
                       "E-Commerce Store",
                       "Web Application",
                       "SEO Optimization",
-                      "Website Redesign",
-                      "Landing Page",
                     ].map((service) => {
                       const isSelected = selectedServices.includes(service);
                       return (
@@ -480,10 +451,10 @@ export default function ContactSection() {
                           type="button"
                           onClick={() => handleServiceToggle(service)}
                           aria-pressed={isSelected}
-                          className={`transition-all duration-200 font-semibold ${
+                          className={`transition-all duration-200 font-bold ${
                             isSelected
-                              ? "bg-[#1D9E75]/15 border border-[#1D9E75] text-[#1D9E75] rounded-full px-4 py-2 text-[11px] md:text-xs shadow-sm"
-                              : "border border-[#0F2744]/15 bg-white/50 text-[#0F2744]/60 rounded-full px-4 py-2 text-[11px] md:text-xs cursor-pointer hover:border-[#1D9E75]/40 hover:text-[#0F2744] hover:bg-white"
+                              ? "bg-[#1D9E75]/15 border border-[#1D9E75] text-[#1D9E75] rounded-full px-4 py-2 text-[10px] sm:text-xs shadow-sm"
+                              : "border border-[#0F2744]/15 bg-white/50 text-[#0F2744]/60 rounded-full px-4 py-2 text-[10px] sm:text-xs cursor-pointer hover:border-[#1D9E75]/40 hover:text-[#0F2744] hover:bg-white"
                           }`}
                         >
                           {service}
@@ -493,11 +464,16 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-[#0F2744]/55 font-medium leading-relaxed">
-                  We&apos;ll ask about your location, goals, and detailed scope in
-                  our first reply so you can get started faster.
-                </p>
-
+                <div className="flex flex-col gap-3">
+                   <div className="flex items-center gap-2 text-[#0F2744]/70 font-bold text-[11px]">
+                      <CheckCircle2 size={14} className="text-[#1D9E75]" />
+                      FREE custom design preview before you pay
+                   </div>
+                   <div className="flex items-center gap-2 text-[#0F2744]/70 font-bold text-[11px]">
+                      <CheckCircle2 size={14} className="text-[#1D9E75]" />
+                      100% Satisfaction or Money Back
+                   </div>
+                </div>
                 {/* API Error Banner */}
                 {apiError && (
                   <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 flex items-center gap-2">
@@ -521,7 +497,7 @@ export default function ContactSection() {
                       </>
                     ) : (
                       <>
-                        <span>Get My Website Quote</span>
+                        <span>See My Website Price Now</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
                       </>
                     )}

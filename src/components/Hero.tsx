@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Star, GitBranch, Terminal } from "lucide-react";
+import { ArrowRight, Sparkles, Star, GitBranch, Terminal, CheckCircle2 } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
@@ -91,73 +91,83 @@ export default function Hero() {
           {/* Value Badge */}
           <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#1D9E75]/10 border border-[#1D9E75]/30 backdrop-blur-md md:animate-[pulse-green-glow_3s_ease-in-out_infinite] transition-all duration-300">
             <span className="flex h-1.5 w-1.5 rounded-full bg-[#1D9E75] shadow-[0_0_8px_#1D9E75]"></span>
-            <span className="text-[#0a6e50] font-bold text-[10px] sm:text-[11px] tracking-wider">
-              Starting at ₹10K
+            <span className="text-[#0a6e50] font-bold text-[10px] sm:text-[11px] tracking-wider uppercase">
+              Websites starting at ₹6,999
             </span>
           </div>
 
-          {/* Modern Pill Tagline */}
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="md:animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
-            </span>
-            <span className="text-[#0F2744] font-medium text-[11px] sm:text-xs tracking-wide">
-              From idea to online — fast.
-            </span>
+          {/* Quick Trust Triggers */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
+             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/50 border border-white/80 shadow-sm text-[10px] sm:text-[11px] font-bold text-[#0F2744]">
+                <Star size={12} className="text-amber-500 fill-amber-500" />
+                120+ Websites Delivered
+             </div>
+             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/50 border border-white/80 shadow-sm text-[10px] sm:text-[11px] font-bold text-[#0F2744]">
+                <Star size={12} className="text-amber-500 fill-amber-500" />
+                95+ Happy Clients
+             </div>
+             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1D9E75]/10 border border-[#1D9E75]/20 shadow-sm text-[10px] sm:text-[11px] font-bold text-[#1D9E75]">
+                Launch in 7-14 Days
+             </div>
           </div>
 
           {/* Scaled-down Exaggerated Typography H1 */}
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6">
-            <span className="block text-sm sm:text-base uppercase tracking-[0.3em] text-[#1D9E75] mb-3 font-bold">
-              Expert Web Development Agency
-            </span>
-            Transform Your Vision Into a{" "}
-            <span className="relative inline-block whitespace-nowrap">
+          <h1 className="text-[28px] sm:text-5xl md:text-5xl lg:text-7xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6">
+            Get a Website That Brings You{" "}
+            <span className="relative inline-block sm:whitespace-nowrap">
               <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
               <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#185FA5] via-[#1D9E75] to-[#185FA5] bg-[length:200%_auto] animate-[gradient_4s_linear_infinite]">
-                Stunning Website
+                Clients — Not Just Traffic
               </span>
             </span>
           </h1>
 
-          {/* Much Shorter, Smaller Supporting Paragraph */}
-          <p className="max-w-xl text-sm sm:text-base text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance px-2 sm:px-0">
-            We build high-performance, fast-loading Next.js websites that
-            effortlessly convert your visitors into loyal customers.
+          {/* Supporting Paragraph */}
+          <p className="max-w-xl text-base sm:text-lg text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance px-2 sm:px-0">
+            High-performance websites for Indian businesses that turn visitors into paying customers. <span className="text-red-500 font-bold">Only 3 project slots left this week.</span>
           </p>
 
           {/* Magnetic/Modern CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-12 sm:mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-10 sm:mb-12">
             <button
               onClick={() =>
                 window.dispatchEvent(new CustomEvent("open-welcome-popup"))
               }
-              className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.5)] text-sm cursor-pointer"
+              className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_15px_45px_-10px_rgba(15,39,68,0.6)] text-sm cursor-pointer"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative z-10 flex items-center gap-2">
-                <Sparkles size={16} />
-                Get Free Quote
+                <Sparkles size={18} />
+                See My Website Cost (30s)
               </span>
             </button>
             <a
-              href="#services"
-              className="group w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-white/50 backdrop-blur-md border border-[#0F2744]/10 hover:border-[#0F2744]/30 font-bold rounded-full text-[#0F2744] transition-all duration-300 hover:bg-white hover:shadow-lg text-sm cursor-pointer"
+              href="https://wa.me/919205568939?text=I%20want%20to%20get%20an%20instant%20quote%0Afor%20a%20new%20website."
+              className="group w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white/80 backdrop-blur-md border border-[#25D366]/30 hover:border-[#25D366] font-bold rounded-full text-[#128C7E] transition-all duration-300 hover:bg-white hover:shadow-lg text-sm cursor-pointer"
             >
-              View Services
+              Get Quote on WhatsApp
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 duration-300" />
             </a>
           </div>
 
-          <p className="text-xs sm:text-sm text-[#0F2744]/55 font-semibold -mt-7 sm:-mt-10 mb-12 sm:mb-16">
-            Response within 2 hours (Mon-Fri)
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mb-10 sm:mb-14">
+             <div className="flex items-center gap-2 text-[#0F2744]/70 font-bold text-[10px] sm:text-xs">
+                <CheckCircle2 size={14} className="text-[#1D9E75]" />
+                Free SEO Setup Included
+             </div>
+             <div className="flex items-center gap-2 text-[#0F2744]/70 font-bold text-[10px] sm:text-xs">
+                <CheckCircle2 size={14} className="text-[#1D9E75]" />
+                100% Satisfaction Guarantee
+             </div>
+          </div>
         </div>
 
         {/* --- TRUST & RATING ELEMENTS --- (Now positioned directly under buttons) */}
-        <div className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-8 sm:pt-10 border-t border-[#0F2744]/5 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
+        <div className="w-full max-w-5xl mx-auto px-5 sm:px-6 pt-10 sm:pt-12 border-t border-[#0F2744]/5 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
           <div className="flex flex-col items-center md:items-start gap-2 sm:gap-3">
+             <p className="text-[#0F2744]/60 font-black uppercase tracking-[0.2em] text-[8px] sm:text-[9px] mb-1">
+                Rated 4.9/5 by 95+ Happy Clients
+             </p>
             <div className="flex -space-x-2">
               {[
                 { initials: "AK", from: "#185FA5", to: "#0F2744" },
@@ -168,7 +178,7 @@ export default function Hero() {
               ].map((client, i) => (
                 <div
                   key={i}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-[#F1EFE8] overflow-hidden relative shadow-sm flex items-center justify-center"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-[#F1EFE8] overflow-hidden relative shadow-sm flex items-center justify-center"
                   style={{
                     background: `linear-gradient(135deg, ${client.from}, ${client.to})`,
                   }}
@@ -187,9 +197,9 @@ export default function Hero() {
                 <Star className="w-3.5 h-3.5 fill-current" />
                 <Star className="w-3.5 h-3.5 fill-current" />
                 <Star className="w-3.5 h-3.5 fill-current" />
-                <span className="text-[#0F2744] font-bold ml-1">5.0</span>
+                <span className="text-[#0F2744] font-bold ml-1">4.9/5</span>
               </div>
-              <span>From 50+ happy clients</span>
+              <span className="font-bold">Trusted by 50+ businesses & brands</span>
             </div>
           </div>
 

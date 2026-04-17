@@ -134,28 +134,6 @@ export default function ProjectShowcase() {
         </div>
       </div>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        @keyframes marquee-rtl {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-ltr {
-          0%   { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
-        .animate-marquee-rtl { animation: marquee-rtl linear infinite; will-change: transform; }
-        .animate-marquee-ltr { animation: marquee-ltr linear infinite; will-change: transform; }
-        .marquee-wrapper:hover .animate-marquee-rtl,
-        .marquee-wrapper:hover .animate-marquee-ltr { animation-play-state: paused; }
-        .project-card { transition: transform 0.4s ease; }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-marquee-rtl, .animate-marquee-ltr { animation-duration: 120s; }
-        }
-      `,
-        }}
-      />
     </section>
   );
 }

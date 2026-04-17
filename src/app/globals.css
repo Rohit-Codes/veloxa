@@ -9,6 +9,9 @@
 
   --animate-logo-pulse: logo-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-loading-bar: loading-bar 2s linear infinite;
+  --animate-marquee-rtl: marquee-rtl 40s linear infinite;
+  --animate-marquee-ltr: marquee-ltr 40s linear infinite;
+  --animate-marquee-up: marquee-up 24s linear infinite;
 
   @keyframes logo-pulse {
     0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1); }
@@ -17,6 +20,18 @@
   @keyframes loading-bar {
     0% { background-position: 200% 0; }
     100% { background-position: 0 0; }
+  }
+  @keyframes marquee-rtl {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-ltr {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes marquee-up {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
   }
 }
 
@@ -72,6 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Force visibility for elements that start hidden/shifted for entrance animations */
   /* We target specific classes and common patterns to avoid breaking UI states like modals */
+  /* Ensure specific critical layouts are visible */
   .anim-heading,
   .anim-pill,
   .observe-me,
@@ -88,16 +104,8 @@ h1, h2, h3, h4, h5, h6 {
     visibility: visible !important;
   }
 
-  /* Specific fix for marquee tracks and vertical marquees */
-  .marquee-track,
-  .marquee-vertical,
-  [class*="marquee-"] {
-    animation: none !important;
-    transform: none !important;
-  }
-
   /* Ensure background gradients don't try to animate */
-  [class*="animate-[gradient"] {
+  [class*="animate-\\[gradient"] {
     background-size: auto !important;
     animation: none !important;
   }

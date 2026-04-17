@@ -64,10 +64,10 @@ export default function ServicesSection() {
           {/* Heading */}
           <h2
             id="services-heading"
-            className="text-4xl sm:text-5xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] max-w-md mb-8"
+            className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-8"
           >
-            Websites That Drive{" "}
-            <span className="relative inline-block whitespace-nowrap">
+            Websites That Turn <br />
+            <span className="relative inline-block sm:whitespace-nowrap">
               <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
               <span
                 className="relative text-transparent bg-clip-text animate-[gradient_4s_linear_infinite]"
@@ -78,10 +78,10 @@ export default function ServicesSection() {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                Growth
+                Visitors Into
               </span>
-            </span>
-            , Not Just Traffic
+            </span>{" "}
+            Paying Customers
           </h2>
 
           {/* Industry Marquee */}
@@ -100,7 +100,7 @@ export default function ServicesSection() {
               aria-label="Industries we work with"
               role="marquee"
             >
-              <div className="flex flex-col marquee-vertical group-hover:[animation-play-state:paused]">
+              <div className="flex flex-col animate-marquee-up group-hover:[animation-play-state:paused]">
                 {/* Double list for infinite loop */}
                 {[...Array(2)].map((_, i) => (
                   <div key={i} className="flex flex-col pb-2">
@@ -125,7 +125,7 @@ export default function ServicesSection() {
           >
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="relative z-10 flex items-center gap-2">
-              Let&apos;s Get Started
+              Get My Website Plan
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
           </button>
@@ -206,23 +206,6 @@ export default function ServicesSection() {
           </div>
         </div>
       </div>
-
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes marqueeUp {
-          0% { transform: translateY(0); }
-          100% { transform: translateY(-50%); }
-        }
-        @keyframes gradient {
-          0% { background-position: 0% center; }
-          100% { background-position: 200% center; }
-        }
-        .marquee-vertical {
-          animation: marqueeUp 24s linear infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .marquee-vertical { animation: none !important; }
-        }
-      `}} />
     </section>
   );
 }

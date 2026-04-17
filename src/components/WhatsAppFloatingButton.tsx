@@ -3,7 +3,7 @@
 import { MessageCircleMore } from "lucide-react";
 
 const whatsappLink =
-  "https://wa.me/919205568939?text=Hi%20Veloxa%2C%20I%20saw%20your%20ad%20for%20Next.js%20sites%20starting%20at%20%E2%82%B910k.%20I%27d%20like%20to%20discuss%20a%20project.";
+  "https://wa.me/919205568939?text=Hi%20Veloxa%2C%20I%20saw%20your%20website%20starting%20at%20%E2%82%B96%2C999.%20I%27d%20like%20to%20discuss%20a%20project.";
 
 export default function WhatsAppFloatingButton() {
   return (
@@ -12,7 +12,7 @@ export default function WhatsAppFloatingButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Veloxa on WhatsApp"
-      className="fixed bottom-5 right-5 z-[70] group"
+      className="fixed bottom-5 right-5 z-[70] group hidden md:block" // Hide on mobile as we have StickyCTA
     >
       <span className="sr-only">Chat with Veloxa on WhatsApp</span>
       <div className="flex items-center gap-3 rounded-full border border-[#1D9E75]/20 bg-white/85 px-4 py-3 shadow-[0_18px_50px_-20px_rgba(15,39,68,0.45)] backdrop-blur-md transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[#1D9E75]/40">

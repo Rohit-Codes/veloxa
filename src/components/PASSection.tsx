@@ -80,7 +80,7 @@ export default function PASSection() {
               </h2>
               
               <p className="text-base text-[#2C2C2A]/80 font-medium mb-6 leading-relaxed">
-                You're doing everything right — ads, outreach, social media. But you're sending traffic to a website that visually fails to convert.
+                You&apos;re doing everything right — ads, outreach, social media. But you&apos;re sending traffic to a website that visually fails to convert.
               </p>
 
               <ul className="space-y-3 mb-8">
@@ -100,7 +100,7 @@ export default function PASSection() {
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#185FA5] rounded-full blur-[40px] opacity-40" />
               
               <h3 className="font-serif italic font-black text-2xl sm:text-3xl text-[#F1EFE8] leading-tight mb-5 relative z-10">
-                 "Every day your website underperforms, <span className="text-white border-b-2 border-[#1D9E75]">someone else gets the sale.</span>"
+                 &quot;Every day your website underperforms, <span className="text-white border-b-2 border-[#1D9E75]">someone else gets the sale.</span>&quot;
               </h3>
 
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 flex items-center justify-between border border-white/10 relative z-10">

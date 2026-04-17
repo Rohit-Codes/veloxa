@@ -110,8 +110,8 @@ export default function WelcomePopup() {
       reset();
       
       // Track GA event if available
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "generate_lead", {
+      if (typeof window !== "undefined" && "gtag" in window) {
+        (window as { gtag: Function }).gtag("event", "generate_lead", {
           form_name: "welcome_popup_form",
           services_selected: data.services?.join(", ") || "None",
         });
@@ -176,12 +176,12 @@ export default function WelcomePopup() {
               <Sparkles className="w-3 h-3 text-[#1D9E75]" />
               <span className="text-[#1D9E75] text-[9px] font-bold uppercase tracking-wider">Limited Time Offer</span>
             </div>
-            <h2 className="text-lg md:text-3xl font-black text-[#0F2744] leading-tight mb-2">
-              Launch Your Digital <br className="hidden sm:block"/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D9E75] to-[#185FA5]">Presence Today!</span>
+            <h2 className="text-xl md:text-3xl font-black text-[#0F2744] leading-tight mb-2">
+              Get Your High-Converting <br className="hidden sm:block"/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D9E75] to-[#185FA5]">Website for ₹6,999</span>
             </h2>
             <p className="text-[13px] md:text-sm text-[#2C2C2A]/70 font-medium leading-relaxed">
-              Get a custom website starting at just <span className="text-[#0F2744] font-bold">₹10k</span>!
+              Launch in 7-14 days. <span className="text-red-500 font-bold">Only 3 slots available this week!</span>
             </p>
           </div>
 
@@ -273,13 +273,13 @@ export default function WelcomePopup() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-[#0F2744] text-white rounded-xl py-3.5 md:py-4 text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#185FA5] transition-all duration-300 shadow-lg shadow-[#185FA5]/20 active:scale-[0.98] disabled:opacity-70"
+              className="w-full bg-[#0F2744] text-white rounded-xl py-3.5 md:py-4 text-sm font-black flex items-center justify-center gap-2 hover:bg-[#185FA5] transition-all duration-300 shadow-lg shadow-[#185FA5]/20 active:scale-[0.98] disabled:opacity-70"
             >
               {isSubmitting ? (
                 <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
                 <>
-                  <span>Secure My Exclusive Quote</span>
+                  <span>See My Website Cost Now</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
@@ -288,7 +288,7 @@ export default function WelcomePopup() {
             {showSuccess && (
               <div className="flex items-center justify-center gap-2 text-[#1D9E75] font-bold text-sm mt-4 animate-bounce">
                 <CheckCircle2 className="w-5 h-5" />
-                Great! We'll contact you shortly.
+                Great! We&apos;ll contact you shortly.
               </div>
             )}
 
