@@ -166,7 +166,7 @@ export default function ContactSection() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>
             <span className="text-red-700 font-bold text-[10px] sm:text-xs tracking-widest uppercase">
-              Only 3 project slots left this month
+              Only 3 project slots left this week
             </span>
           </div>
 
@@ -429,6 +429,10 @@ export default function ContactSection() {
                         {errors.phone.message}
                       </span>
                     )}
+                    <p className="text-[10px] text-[#0F2744]/40 font-medium mt-2 flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-[#1D9E75]" />
+                      No marketing spam. We only contact you regarding your quote.
+                    </p>
                   </div>
                 </div>
 

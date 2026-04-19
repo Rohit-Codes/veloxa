@@ -161,7 +161,7 @@ export default function FAQSection() {
 						Still have questions? We're happy to help.
 					</span>
 					<Link
-						href="https://wa.me/919205568939?text=Hi%20Veloxa,%20I%20saw%20your%20ad%20and%20want%20to%20know%20more%20about%20the%2010k%20website%20plan"
+						href="https://wa.me/919205568939?text=Hi%20Veloxa,%20I%20saw%20your%20ad%20and%20want%20to%20know%20more%20about%20the%20website%20plans"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-[#1D9E75] font-semibold hover:underline underline-offset-4 decoration-[#1D9E75]/40 ml-2 inline-flex items-center"

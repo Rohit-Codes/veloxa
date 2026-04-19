@@ -124,11 +124,11 @@ export default function Hero() {
 
           {/* Supporting Paragraph */}
           <p className="max-w-xl text-base sm:text-lg text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance px-2 sm:px-0">
-            High-performance websites for Indian businesses that turn visitors into paying customers. <span className="text-red-500 font-bold">Only 3 project slots left this week.</span>
+            Stop losing leads to a slow website. We build high-performance systems for Indian businesses that turn visitors into paying customers. <span className="text-red-500 font-bold">Only 3 project slots left this week.</span>
           </p>
 
           {/* Magnetic/Modern CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-10 sm:mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-6">
             <button
               onClick={() =>
                 window.dispatchEvent(new CustomEvent("open-welcome-popup"))
@@ -148,6 +148,19 @@ export default function Hero() {
               Get Quote on WhatsApp
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 duration-300" />
             </a>
+          </div>
+
+          <div className="flex items-center justify-center gap-2 mb-10 sm:mb-12">
+             <div className="flex -space-x-1">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="w-5 h-5 rounded-full bg-[#1D9E75] border-2 border-[#F1EFE8] flex items-center justify-center">
+                    <CheckCircle2 size={10} className="text-white" />
+                  </div>
+                ))}
+             </div>
+             <p className="text-[10px] sm:text-xs font-bold text-[#0F2744]/60 uppercase tracking-wider">
+                Responds in &lt; 2 hours
+             </p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mb-10 sm:mb-14">

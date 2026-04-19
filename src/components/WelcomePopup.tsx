@@ -236,6 +236,10 @@ export default function WelcomePopup() {
                 {errors.phone && (
                   <span className="text-[10px] text-red-500 font-bold mt-1 block">{errors.phone.message}</span>
                 )}
+                <p className="text-[9px] text-[#0F2744]/40 font-medium mt-1.5 flex items-center gap-1">
+                  <CheckCircle2 className="w-2.5 h-2.5 text-[#1D9E75]" />
+                  Secure & Private. We never share your data.
+                </p>
               </div>
             </div>
 
