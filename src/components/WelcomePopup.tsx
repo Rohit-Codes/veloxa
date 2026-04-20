@@ -106,26 +106,29 @@ export default function WelcomePopup() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "",
       );
 
+      // --- Tracking ---
+      if (typeof window !== "undefined") {
+        const w = window as any;
+        if (w.fbq) {
+          // Standard Lead Event
+          w.fbq("track", "Lead", {
+            content_name: "Welcome Popup Form",
+            value: 6999,
+            currency: "INR"
+          });
+          // Custom Event for redundancy
+          w.fbq("trackCustom", "WelcomePopupSubmitted");
+        }
+        
+        if (w.gtag) {
+          w.gtag("event", "generate_lead", {
+            form_name: "welcome_popup_form",
+            services_selected: data.services?.join(", ") || "None",
+          });
+        }
+      }
+
       setShowSuccess(true);
-      
-      // Track Meta Pixel Lead event
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Lead", {
-          content_name: "Welcome Popup Form",
-          content_category: "Cost Inquiry",
-          value: 6999,
-          currency: "INR"
-        });
-      }
-
-      // Track GA event if available
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "generate_lead", {
-          form_name: "welcome_popup_form",
-          services_selected: data.services?.join(", ") || "None",
-        });
-      }
-
       reset();
       
       // Close popup after success

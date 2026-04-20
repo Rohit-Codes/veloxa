@@ -84,27 +84,32 @@ export default function ContactSection() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "",
       );
 
+      // --- Tracking ---
+      if (typeof window !== "undefined") {
+        const w = window as any;
+        if (w.fbq) {
+          // Standard Lead Event
+          w.fbq("track", "Lead", {
+            content_name: "Bottom Contact Form",
+            value: 14999,
+            currency: "INR"
+          });
+          // Custom Event for redundancy
+          w.fbq("trackCustom", "BottomContactSubmitted");
+        }
+        
+        if (w.gtag) {
+          w.gtag("event", "generate_lead", {
+            currency: "INR",
+            value: 1,
+            form_name: "contact_form",
+            services_selected: data.services?.join(", ") || "None",
+          });
+        }
+      }
+
       setShowSuccess(true);
       reset();
-
-      if (typeof window !== "undefined" && (window as { gtag: Function }).gtag) {
-        (window as { gtag: Function }).gtag("event", "generate_lead", {
-          currency: "INR",
-          value: 1,
-          form_name: "contact_form",
-          services_selected: data.services?.join(", ") || "None",
-        });
-      }
-
-      // Track Meta Pixel Lead event
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Lead", {
-          content_name: "Bottom Contact Form",
-          content_category: "Contact Inquiry",
-          value: 14999,
-          currency: "INR"
-        });
-      }
     } catch (err) {
       console.error("EmailJS Error:", err);
       setApiError(
