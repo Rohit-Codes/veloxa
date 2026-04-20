@@ -107,8 +107,8 @@ h1, h2, h3, h4, h5, h6 {
       -webkit-backdrop-filter: none !important;
     }
 
-    /* Reduce intensity of large blurred decorative orbs */
-    [class*="blur-"], [class*="blur\\["] {
+    /* Reduce intensity of large blurred decorative orbs safely */
+    .absolute.pointer-events-none[class*="blur-"] {
       filter: blur(20px) !important;
       opacity: 0.1 !important;
     }
