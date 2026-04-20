@@ -528,7 +528,7 @@ export default function ContactSection() {
 
                   {showSuccess && (
                     <div
-                      className="mt-4 p-4 rounded-xl bg-[#1D9E75]/10 border border-[#1D9E75]/20 flex items-center justify-center gap-2 text-[#1D9E75] font-bold text-sm animate-in fade-in slide-in-from-top-2 duration-500"
+                      className="mt-4 p-4 rounded-xl bg-[#1D9E75]/10 border border-[#1D9E75]/20 flex items-center justify-center gap-2 text-[#1D9E75] font-bold text-sm duration-500"
                       role="status"
                     >
                       <CheckCircle2 className="w-5 h-5" />

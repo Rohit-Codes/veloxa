@@ -19,7 +19,7 @@ export default function Preloader() {
       setLoading(false);
     } else {
       window.addEventListener("load", handleLoad);
-      const fallback = setTimeout(handleLoad, 2000); // Shorter fallback
+      const fallback = setTimeout(handleLoad, 600); // Super short fallback for instant feel
       return () => {
         window.removeEventListener("load", handleLoad);
         clearTimeout(fallback);

@@ -70,62 +70,67 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Removal of Animations on Mobile (except Preloader) */
-@media (max-width: 768px) {
-  *:not(#preloader):not(#preloader *),
-  *:not(#preloader):not(#preloader *)::before,
-  *:not(#preloader):not(#preloader *)::after {
-    /* Disable all CSS animations */
-    animation: none !important;
+/* Force visibility for elements that start hidden/shifted for entrance animations */
+/* We target specific classes and common patterns to avoid breaking UI states like modals */
+.anim-heading,
+.anim-pill,
+.observe-me,
+.animated-el,
+.intersected,
+[data-intersected="true"],
+.opacity-0.translate-y-8,
+.opacity-0.translate-y-4,
+.opacity-0.translate-x-12,
+.opacity-0.translate-x-4,
+.opacity-0.scale-95,
+.animate-in,
+.fade-in,
+.slide-in-from-bottom-5 {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Removal of Animations on All Devices for Instant Appearance */
+@media (max-width: 10000px) {
+  *:not(#preloader):not(#preloader *):not(.marquee-track),
+  *:not(#preloader):not(#preloader *):not(.marquee-track)::before,
+  *:not(#preloader):not(#preloader *):not(.marquee-track)::after {
+    /* Disable all CSS animations except critical ones like marquee and preloader */
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
     
     /* Disable long transitions primarily used for entrance effects */
     transition-duration: 0s !important;
     transition-delay: 0s !important;
-    
-    scroll-behavior: auto !important;
   }
 
-  /* Force visibility for elements that start hidden/shifted for entrance animations */
-  /* We target specific classes and common patterns to avoid breaking UI states like modals */
-  /* Ensure specific critical layouts are visible */
-  .anim-heading,
-  .anim-pill,
-  .observe-me,
-  .animated-el,
-  .intersected,
-  [data-intersected="true"],
-  .opacity-0.translate-y-8,
-  .opacity-0.translate-y-4,
-  .opacity-0.translate-x-12,
-  .opacity-0.translate-x-4,
-  .opacity-0.scale-95 {
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-  }
-
-  /* Ensure background gradients don't try to animate */
+  /* Ensure background gradients don't try to animate complexly */
   [class*="animate-\\[gradient"] {
     background-size: auto !important;
     animation: none !important;
   }
 
-  /* Nuclear Performance Optimization for Mobile */
+  /* Nuclear Performance Optimization */
   /* backdrop-filter: blur is extremely heavy on mobile GPUs during scroll */
-  *, *::before, *::after {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
+  @media (max-width: 768px) {
+    *, *::before, *::after {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
 
-  /* Reduce intensity of large blurred decorative orbs */
-  [class*="blur-"], [class*="blur\["] {
-    filter: blur(20px) !important; /* Cap blur at 20px on mobile */
-    opacity: 0.1 !important; /* Reduce opacity to make it less expensive to composite */
+    /* Reduce intensity of large blurred decorative orbs */
+    [class*="blur-"], [class*="blur\["] {
+      filter: blur(20px) !important;
+      opacity: 0.1 !important;
+    }
   }
 
   /* Specific fix for blanking: ensure everything has a minimum height and is visible */
   section, div {
-     will-change: auto !important; /* Prevent over-allocation of GPU layers */
+     will-change: auto !important;
   }
 
   /* FAQ Accordion - remove sliding animation but keep snapping open/close */

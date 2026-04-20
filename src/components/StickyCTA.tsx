@@ -22,7 +22,7 @@ export default function StickyCTA() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 right-6 z-50 md:hidden animate-in fade-in slide-in-from-bottom-5 duration-300">
+    <div className="fixed bottom-6 left-6 right-6 z-50 md:hidden duration-300">
       <div className="flex gap-3">
         <button
           onClick={() => {
