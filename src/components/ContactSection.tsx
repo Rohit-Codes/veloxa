@@ -87,12 +87,22 @@ export default function ContactSection() {
       setShowSuccess(true);
       reset();
 
-      if (typeof window !== "undefined" && "gtag" in window) {
+      if (typeof window !== "undefined" && (window as { gtag: Function }).gtag) {
         (window as { gtag: Function }).gtag("event", "generate_lead", {
           currency: "INR",
           value: 1,
           form_name: "contact_form",
           services_selected: data.services?.join(", ") || "None",
+        });
+      }
+
+      // Track Meta Pixel Lead event
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead", {
+          content_name: "Bottom Contact Form",
+          content_category: "Contact Inquiry",
+          value: 14999,
+          currency: "INR"
         });
       }
     } catch (err) {
