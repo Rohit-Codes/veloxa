@@ -78,7 +78,15 @@ export default function CTASection() {
         <div className="relative z-10 flex flex-col items-center justify-center lg:shrink-0">
           <div className="w-full">
             <button
-              onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("open-welcome-popup"));
+                if (typeof (window as any).fbq === "function") {
+                  // Standard event for Meta optimization ✅
+                  (window as any).fbq("track", "Lead");
+                  // Custom event for your own tracking ✅
+                  (window as any).fbq("trackCustom", "CheckCostClick");
+                }
+              }}
               aria-label="Get your website quote with Veloxa"
               className="cta-button group relative flex items-center justify-center gap-3 w-full sm:w-auto bg-[#F1EFE8] text-[#0F2744] hover:text-white rounded-full px-6 py-4 sm:px-10 sm:py-5 text-sm sm:text-base md:text-lg font-black transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(29,158,117,0.3)] overflow-hidden cursor-pointer"
             >

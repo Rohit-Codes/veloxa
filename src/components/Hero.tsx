@@ -133,6 +133,9 @@ export default function Hero() {
               onClick={() => {
                 window.dispatchEvent(new CustomEvent("open-welcome-popup"));
                 if (typeof (window as any).fbq === "function") {
+                  // Standard event for Meta optimization ✅
+                  (window as any).fbq("track", "Lead");
+                  // Custom event for your own tracking ✅
                   (window as any).fbq("trackCustom", "CheckCostClick");
                 }
               }}

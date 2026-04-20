@@ -117,7 +117,15 @@ export default function PASSection() {
             {/* CTA Button placed on left below agitation for mobile/desktop flow */}
             <div className="hidden xl:block mt-6">
               <button
-                onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent("open-welcome-popup"));
+                  if (typeof (window as any).fbq === "function") {
+                    // Standard event for Meta optimization ✅
+                    (window as any).fbq("track", "Lead");
+                    // Custom event for your own tracking ✅
+                    (window as any).fbq("trackCustom", "CheckCostClick");
+                  }
+                }}
                 className="group relative inline-flex w-full items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-all hover:scale-[1.02] active:scale-95 shadow-[0_10px_30px_-10px_rgba(15,39,68,0.5)] border border-[#185FA5]/30 cursor-pointer"
               >
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -207,7 +215,15 @@ export default function PASSection() {
           {/* CTA for Mobile/Tablet */}
           <div className="xl:hidden w-full mt-4">
             <button
-              onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("open-welcome-popup"));
+                if (typeof (window as any).fbq === "function") {
+                  // Standard event for Meta optimization ✅
+                  (window as any).fbq("track", "Lead");
+                  // Custom event for your own tracking ✅
+                  (window as any).fbq("trackCustom", "CheckCostClick");
+                }
+              }}
               className="group relative inline-flex w-full items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-all shadow-lg cursor-pointer"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

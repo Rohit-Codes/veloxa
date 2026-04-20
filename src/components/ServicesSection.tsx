@@ -120,7 +120,15 @@ export default function ServicesSection() {
 
           {/* CTA Button */}
           <button
-            onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent("open-welcome-popup"));
+              if (typeof (window as any).fbq === "function") {
+                // Standard event for Meta optimization ✅
+                (window as any).fbq("track", "Lead");
+                // Custom event for your own tracking ✅
+                (window as any).fbq("trackCustom", "CheckCostClick");
+              }
+            }}
             className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_-10px_rgba(15,39,68,0.3)] text-sm cursor-pointer"
           >
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

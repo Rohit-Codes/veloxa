@@ -100,7 +100,15 @@ export default function PricingSection() {
               </ul>
 
               <button
-                onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent("open-welcome-popup"));
+                  if (typeof (window as any).fbq === "function") {
+                    // Standard event for Meta optimization ✅
+                    (window as any).fbq("track", "Lead");
+                    // Custom event for your own tracking ✅
+                    (window as any).fbq("trackCustom", "CheckCostClick");
+                  }
+                }}
                 className={`w-full py-4 rounded-2xl font-black transition-all duration-300 flex items-center justify-center gap-2 text-sm ${
                   plan.popular
                     ? "bg-[#0F2744] text-white hover:bg-[#185FA5] shadow-xl"

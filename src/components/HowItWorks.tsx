@@ -66,7 +66,15 @@ export default function HowItWorks() {
 
         <div className="mt-16 text-center">
             <button
-              onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("open-welcome-popup"));
+                if (typeof (window as any).fbq === "function") {
+                  // Standard event for Meta optimization ✅
+                  (window as any).fbq("track", "Lead");
+                  // Custom event for your own tracking ✅
+                  (window as any).fbq("trackCustom", "CheckCostClick");
+                }
+              }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#0F2744] text-white rounded-full font-bold hover:scale-105 active:scale-95 transition-all shadow-lg text-sm cursor-pointer"
             >
               Start My 14-Day Sprint

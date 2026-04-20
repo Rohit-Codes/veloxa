@@ -182,7 +182,15 @@ export default function ComparisonSection() {
         {/* Bottom CTA */}
         <div className="mt-20 text-center">
              <button
-                onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent("open-welcome-popup"));
+                  if (typeof (window as any).fbq === "function") {
+                    // Standard event for Meta optimization ✅
+                    (window as any).fbq("track", "Lead");
+                    // Custom event for your own tracking ✅
+                    (window as any).fbq("trackCustom", "CheckCostClick");
+                  }
+                }}
                 className="group relative inline-flex items-center gap-3 px-12 py-5 rounded-full font-black text-white bg-[#0F2744] overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_20px_50px_rgba(15,39,68,0.3)] cursor-pointer"
               >
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

@@ -25,7 +25,15 @@ export default function StickyCTA() {
     <div className="fixed bottom-6 left-6 right-6 z-50 md:hidden animate-in fade-in slide-in-from-bottom-5 duration-300">
       <div className="flex gap-3">
         <button
-          onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+          onClick={() => {
+            window.dispatchEvent(new CustomEvent("open-welcome-popup"));
+            if (typeof (window as any).fbq === "function") {
+              // Standard event for Meta optimization ✅
+              (window as any).fbq("track", "Lead");
+              // Custom event for your own tracking ✅
+              (window as any).fbq("trackCustom", "CheckCostClick");
+            }
+          }}
           className="flex-1 bg-[#0F2744] text-white font-black py-4 rounded-2xl shadow-[0_15px_45px_-10px_rgba(15,39,68,0.6)] border border-white/20 active:scale-95 transition-transform text-sm"
         >
           GET FREE QUOTE
