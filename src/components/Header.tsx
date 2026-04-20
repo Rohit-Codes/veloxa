@@ -70,7 +70,12 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
             <button
-              onClick={() => window.dispatchEvent(new CustomEvent("open-welcome-popup"))}
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("open-welcome-popup"));
+                if (typeof (window as any).fbq === "function") {
+                  (window as any).fbq("trackCustom", "CheckCostClick");
+                }
+              }}
               className="group relative inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 cursor-pointer"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
