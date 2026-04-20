@@ -93,20 +93,6 @@ h1, h2, h3, h4, h5, h6 {
   transition: none !important;
 }
 
-/* Removal of Animations on All Devices for Instant Appearance */
-@media (max-width: 10000px) {
-  *:not(#preloader):not(#preloader *):not(.marquee-track),
-  *:not(#preloader):not(#preloader *):not(.marquee-track)::before,
-  *:not(#preloader):not(#preloader *):not(.marquee-track)::after {
-    /* Disable all CSS animations except critical ones like marquee and preloader */
-    animation-duration: 0s !important;
-    animation-delay: 0s !important;
-    
-    /* Disable long transitions primarily used for entrance effects */
-    transition-duration: 0s !important;
-    transition-delay: 0s !important;
-  }
-
   /* Ensure background gradients don't try to animate complexly */
   [class*="animate-\\[gradient"] {
     background-size: auto !important;
@@ -122,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     /* Reduce intensity of large blurred decorative orbs */
-    [class*="blur-"], [class*="blur\["] {
+    [class*="blur-"], [class*="blur\\["] {
       filter: blur(20px) !important;
       opacity: 0.1 !important;
     }
@@ -132,11 +118,3 @@ h1, h2, h3, h4, h5, h6 {
   section, div {
      will-change: auto !important;
   }
-
-  /* FAQ Accordion - remove sliding animation but keep snapping open/close */
-  .faq-answer,
-  .faq-answer-inner,
-  .faq-icon {
-    transition: none !important;
-  }
-}

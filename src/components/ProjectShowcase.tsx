@@ -43,6 +43,7 @@ function ProjectCard({ project }: { project: Project }) {
           fill
           sizes="340px"
           className="object-cover"
+          priority
         />
       </div>
       {/* Frame Inset Shadow */}

@@ -104,27 +104,7 @@ const CATEGORIES = ["All", "E-commerce", "SaaS", "Fintech", "Corporate", "Health
 
 export default function PortfolioClientContent() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setInView(true);
-            const elements = entry.target.querySelectorAll(".observe-item");
-            elements.forEach((el) => {
-              el.setAttribute("data-intersected", "true");
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const inView = true; // Force true for immediate render
 
   return (
     <main className="bg-[#F1EFE8]">
@@ -152,7 +132,7 @@ export default function PortfolioClientContent() {
 
         {/* Content */}
         <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm opacity-0 animate-[fade-in-down_0.8s_ease-out_0.1s_forwards]">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
@@ -162,7 +142,7 @@ export default function PortfolioClientContent() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-7xl font-black text-[#0F2744] tracking-tight leading-[1.05] mb-5 sm:mb-6 opacity-0 animate-[fade-in-scale_0.8s_ease-out_0.2s_forwards]">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-7xl font-black text-[#0F2744] tracking-tight leading-[1.05] mb-5 sm:mb-6">
             Digital Excellence. <br/>
             <span className="relative inline-block whitespace-nowrap">
               <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
@@ -177,7 +157,7 @@ export default function PortfolioClientContent() {
             </span>
           </h1>
 
-          <p className="max-w-xl text-sm sm:text-base text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance opacity-0 animate-[fade-in-up_0.8s_ease-out_0.35s_forwards] px-2 sm:px-0">
+          <p className="max-w-xl text-sm sm:text-base text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance px-2 sm:px-0">
             Explore our curated collection of high-performance websites and digital solutions that drive real business growth across various industries.
           </p>
         </div>
@@ -195,13 +175,10 @@ export default function PortfolioClientContent() {
             {PROJECTS.map((project, idx) => (
               <div 
                 key={project.id}
-                className={`group relative overflow-hidden rounded-3xl border-2 border-white/60 shadow-sm transition-all duration-500 hover:shadow-2xl hover:border-[#1D9E75]/30 hover:-translate-y-1 observe-item opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 ${
+                className={`group relative overflow-hidden rounded-3xl border-2 border-white/60 shadow-sm transition-all duration-500 hover:shadow-2xl hover:border-[#1D9E75]/30 hover:-translate-y-1 ${
                   project.size === "large" ? "lg:col-span-2 lg:row-span-2" : 
                   project.size === "medium" ? "lg:row-span-2" : ""
                 }`}
-                style={{ 
-                  transitionDelay: `${idx * 100}ms`
-                }}
               >
                 {/* Background Image */}
                 <Image 
@@ -209,6 +186,7 @@ export default function PortfolioClientContent() {
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:blur-[2px]"
+                  priority
                 />
                 
                 {/* Dark Overlay on Hover */}
@@ -264,7 +242,7 @@ export default function PortfolioClientContent() {
           </div>
 
           {/* Bottom Call to Action */}
-          <div className="mt-24 text-center observe-item opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 delay-300">
+          <div className="mt-24 text-center">
              <p className="text-[#0F2744]/60 font-bold mb-8">Want to see more of our specific industry results?</p>
              <Link 
               href="/contact"

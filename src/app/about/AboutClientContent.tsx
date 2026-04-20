@@ -106,53 +106,11 @@ const AnimatedCounterGradient = memo(({
 });
 AnimatedCounterGradient.displayName = 'AnimatedCounterGradient';
 
-export default function AboutClientContent() {
+  export default function AboutClientContent() {
   const sectionRef = useRef<HTMLElement>(null);
   const statsRef = useRef<HTMLElement>(null);
-  const [inViewWhoWeAre, setInViewWhoWeAre] = useState(false);
-  const [inViewStats, setInViewStats] = useState(false);
+  const inViewStats = true; // Force true for immediate render
 
-  useEffect(() => {
-    const observerWho = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setInViewWhoWeAre(true);
-            const elements = entry.target.querySelectorAll(".observe-who");
-            elements.forEach((el) => {
-              el.setAttribute("data-intersected", "true");
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) observerWho.observe(sectionRef.current);
-    
-    return () => observerWho.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const observerStats = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setInViewStats(true);
-            const elements = entry.target.querySelectorAll(".observe-stat");
-            elements.forEach((el) => {
-              el.setAttribute("data-intersected", "true");
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (statsRef.current) observerStats.observe(statsRef.current);
-    
-    return () => observerStats.disconnect();
-  }, []);
 
   return (
     <main>
@@ -186,7 +144,7 @@ export default function AboutClientContent() {
         {/* Content */}
         <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
           {/* Modern Pill Tagline (Matches Home) */}
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm opacity-0 animate-[fade-in-down_0.8s_ease-out_0.1s_forwards]">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
@@ -196,7 +154,7 @@ export default function AboutClientContent() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6 opacity-0 animate-[fade-in-scale_0.8s_ease-out_0.2s_forwards]">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-[#0F2744] tracking-tight leading-[1.1] mb-5 sm:mb-6">
             Driven by Performance. <br/>
             <span className="relative inline-block whitespace-nowrap">
               <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
@@ -211,7 +169,7 @@ export default function AboutClientContent() {
             </span>
           </h1>
 
-          <p className="max-w-xl text-sm sm:text-base text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance opacity-0 animate-[fade-in-up_0.8s_ease-out_0.35s_forwards] px-2 sm:px-0">
+          <p className="max-w-xl text-sm sm:text-base text-[#2C2C2A]/80 leading-relaxed font-medium mb-8 sm:mb-10 text-balance px-2 sm:px-0">
             We combine technical excellence with strategic design to deliver websites that don’t just look great — they perform, rank, and convert.
           </p>
         </div>
@@ -232,7 +190,7 @@ export default function AboutClientContent() {
           {/* LEFT COLUMN */}
           <div className="flex flex-col items-start order-1">
             {/* Modern Pill (Matches Services) */}
-            <div className="observe-who opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
@@ -244,7 +202,7 @@ export default function AboutClientContent() {
 
             <h2 
               id="who-we-are-heading"
-              className="observe-who opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 delay-[100ms] text-4xl sm:text-5xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] max-w-md mb-8"
+              className="text-4xl sm:text-5xl md:text-5xl font-black text-[#0F2744] tracking-tight leading-[1.1] max-w-md mb-8"
             >
               A Passionate Team Committed to Your{" "}
               <span className="relative inline-block whitespace-nowrap">
@@ -310,7 +268,7 @@ export default function AboutClientContent() {
 
             <Link 
               href="/contact"
-              className="observe-who opacity-0 data-[intersected=true]:animate-[popIn_0.5s_cubic-bezier(0.34,1.56,0.64,1)_0.4s_both] bg-[#0F2744] text-white rounded-full px-8 py-4 font-bold inline-flex items-center gap-3 mt-10 hover:shadow-[0_10px_40px_-10px_rgba(15,39,68,0.5)] active:scale-[0.97] transition-all duration-300 group"
+              className="bg-[#0F2744] text-white rounded-full px-8 py-4 font-bold inline-flex items-center gap-3 mt-10 hover:shadow-[0_10px_40px_-10px_rgba(15,39,68,0.5)] active:scale-[0.97] transition-all duration-300 group"
             >
               Start a Project
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
@@ -396,7 +354,7 @@ export default function AboutClientContent() {
           {/* Section Header */}
           <div className="flex flex-col items-center">
             {/* Modern Pill (Matches Services) */}
-            <div className="observe-stat opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 ease-out inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D9E75] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D9E75]"></span>
@@ -406,7 +364,7 @@ export default function AboutClientContent() {
               </span>
             </div>
 
-            <h2 id="why-choose-heading" className="observe-stat opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 delay-[100ms] text-4xl sm:text-5xl md:text-5xl font-black text-[#0F2744] text-center max-w-2xl mx-auto mt-4 leading-[1.1]">
+            <h2 id="why-choose-heading" className="text-4xl sm:text-5xl md:text-5xl font-black text-[#0F2744] text-center max-w-2xl mx-auto mt-4 leading-[1.1]">
               Numbers That Prove We Deliver — <br/>
               <span className="relative inline-block whitespace-nowrap">
                 <span className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#185FA5]/10 to-[#1D9E75]/10 blur-sm filter"></span>
@@ -421,7 +379,7 @@ export default function AboutClientContent() {
               </span>
             </h2>
 
-            <p className="text-base md:text-lg text-[#2C2C2A]/70 text-center max-w-xl mx-auto mt-6 mb-16 observe-stat opacity-0 data-[intersected=true]:opacity-100 transition-all duration-700 delay-[200ms] ease-out">
+            <p className="text-base md:text-lg text-[#2C2C2A]/70 text-center max-w-xl mx-auto mt-6 mb-16">
               Behind every number is a business that trusted Veloxa to build their digital presence — and a team that delivered beyond expectations.
             </p>
           </div>
@@ -429,7 +387,7 @@ export default function AboutClientContent() {
           {/* Stats Display — Unified Grid Layout with Equal Widths */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Stat Card 1 — Projects Completed */}
-            <div className="group relative flex flex-col justify-between bg-white/60 border border-white/60 rounded-3xl backdrop-blur-md p-8 overflow-hidden hover:border-[#1D9E75]/30 hover:bg-white hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-400 ease-out observe-stat opacity-0 translate-y-6 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0">
+            <div className="group relative flex flex-col justify-between bg-white/60 border border-white/60 rounded-3xl backdrop-blur-md p-8 overflow-hidden hover:border-[#1D9E75]/30 hover:bg-white hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-400">
               <div className="absolute left-0 top-0 w-1.5 h-full bg-[#1D9E75] rounded-l-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <FolderCheck className="w-10 h-10 text-[#1D9E75] mb-6 transition-transform group-hover:scale-110 duration-300" />
               <div aria-live="polite" aria-label="120+ Projects Successfully Delivered. Across India and globally.">
@@ -440,7 +398,7 @@ export default function AboutClientContent() {
             </div>
 
             {/* Stat Card 2 — Happy Clients */}
-            <div className="group relative flex flex-col justify-between bg-white/60 border border-white/60 rounded-3xl backdrop-blur-md p-8 overflow-hidden hover:border-[#185FA5]/30 hover:bg-white hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-400 ease-out observe-stat opacity-0 translate-y-6 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 delay-[100ms]">
+            <div className="group relative flex flex-col justify-between bg-white/60 border border-white/60 rounded-3xl backdrop-blur-md p-8 overflow-hidden hover:border-[#185FA5]/30 hover:bg-white hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-400">
               <div className="absolute left-0 top-0 w-1.5 h-full bg-[#185FA5] rounded-l-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Users className="w-10 h-10 text-[#185FA5] mb-6 transition-transform group-hover:scale-110 duration-300" />
               <div aria-live="polite" aria-label="95+ Happy Clients. Startups to enterprises.">
@@ -451,7 +409,7 @@ export default function AboutClientContent() {
             </div>
 
             {/* Stat Card 3 — Years of Experience */}
-            <div className="group relative flex flex-col justify-between bg-white/60 border border-white/60 rounded-3xl backdrop-blur-md p-8 overflow-hidden hover:border-[#1D9E75]/30 hover:bg-white hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-400 ease-out observe-stat opacity-0 translate-y-6 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 delay-[200ms]">
+            <div className="group relative flex flex-col justify-between bg-white/60 border border-white/60 rounded-3xl backdrop-blur-md p-8 overflow-hidden hover:border-[#1D9E75]/30 hover:bg-white hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-400">
               <div className="absolute left-0 top-0 w-1.5 h-full bg-[#1D9E75] rounded-l-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <CalendarDays className="w-10 h-10 text-[#1D9E75] mb-6 transition-transform group-hover:scale-110 duration-300" />
               <div aria-live="polite" aria-label="5+ Years in Business. Founded with a mission to deliver fast.">
@@ -462,7 +420,7 @@ export default function AboutClientContent() {
             </div>
 
             {/* Stat Card 4 — Performance Score */}
-            <div className="group relative flex flex-col justify-between bg-white/60 border border-white/60 rounded-3xl backdrop-blur-md p-8 overflow-hidden hover:border-[#185FA5]/30 hover:bg-white hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-400 ease-out observe-stat opacity-0 translate-y-6 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 delay-[300ms]">
+            <div className="group relative flex flex-col justify-between bg-white/60 border border-white/60 rounded-3xl backdrop-blur-md p-8 overflow-hidden hover:border-[#185FA5]/30 hover:bg-white hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-400">
               <div className="absolute left-0 top-0 w-1.5 h-full bg-[#185FA5] rounded-l-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="flex justify-between items-start">
                 <Gauge className="w-10 h-10 text-[#185FA5] mb-6 transition-transform group-hover:scale-110 duration-300" />
@@ -491,7 +449,7 @@ export default function AboutClientContent() {
           </div>
 
           {/* Bonus Stat Row */}
-          <div className="flex flex-wrap justify-center gap-x-12 sm:gap-x-20 gap-y-8 mt-20 observe-stat opacity-0 data-[intersected=true]:opacity-100 transition-all duration-1000 ease-out delay-500">
+          <div className="flex flex-wrap justify-center gap-x-12 sm:gap-x-20 gap-y-8 mt-20">
             <div className="text-center group">
               <div className="text-3xl font-black text-[#1D9E75] group-hover:scale-110 transition-transform duration-300">24hrs</div>
               <div className="text-[11px] uppercase tracking-wider font-bold text-[#0F2744]/40 mt-2">Response Time</div>
@@ -509,7 +467,7 @@ export default function AboutClientContent() {
           </div>
 
           {/* Bottom CTA Strip — Now matches homepage CTASection style */}
-          <div className="relative z-10 w-full max-w-7xl mx-auto bg-[#0F2744] rounded-[2rem] sm:rounded-[2.5rem] border-2 border-white/60 shadow-2xl p-10 md:p-14 mt-24 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10 observe-stat opacity-0 translate-y-8 data-[intersected=true]:opacity-100 data-[intersected=true]:translate-y-0 transition-all duration-700 delay-500 ease-out">
+          <div className="relative z-10 w-full max-w-7xl mx-auto bg-[#0F2744] rounded-[2rem] sm:rounded-[2.5rem] border-2 border-white/60 shadow-2xl p-10 md:p-14 mt-24 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
             
             {/* Banner Inner Gradient Orbs */}
             <div className="absolute top-[-50%] left-[-20%] w-[70%] h-[200%] bg-gradient-to-br from-[#185FA5]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -601,7 +559,6 @@ export default function AboutClientContent() {
           .values-marquee { animation: none !important; }
           .animate-\\[float_10s_ease-in-out_infinite\\] { animation: none !important; }
           [class*="animate-"] { animation-duration: 0.01s !important; }
-          .observe-who, .observe-stat { transition: opacity 0.1s !important; transform: none !important; }
           circle { transition: none !important; }
         }
       `}} />
