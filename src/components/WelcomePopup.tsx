@@ -117,6 +117,14 @@ export default function WelcomePopup() {
         });
       }
 
+      // Track Meta Pixel Lead event
+      if (typeof (window as any).fbq === "function") {
+        (window as any).fbq("track", "Lead", {
+          content_name: "Welcome Popup Form",
+          content_category: "Cost Inquiry",
+        });
+      }
+
       // Close popup after success
       setTimeout(() => {
         closePopup();

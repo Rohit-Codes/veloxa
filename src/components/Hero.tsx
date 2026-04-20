@@ -130,9 +130,12 @@ export default function Hero() {
           {/* Magnetic/Modern CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-6">
             <button
-              onClick={() =>
-                window.dispatchEvent(new CustomEvent("open-welcome-popup"))
-              }
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("open-welcome-popup"));
+                if (typeof (window as any).fbq === "function") {
+                  (window as any).fbq("trackCustom", "CheckCostClick");
+                }
+              }}
               className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-white bg-[#0F2744] overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_15px_45px_-10px_rgba(15,39,68,0.6)] text-sm cursor-pointer"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#185FA5] to-[#1D9E75] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
