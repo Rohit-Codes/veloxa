@@ -110,6 +110,24 @@ h1, h2, h3, h4, h5, h6 {
     animation: none !important;
   }
 
+  /* Nuclear Performance Optimization for Mobile */
+  /* backdrop-filter: blur is extremely heavy on mobile GPUs during scroll */
+  *, *::before, *::after {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Reduce intensity of large blurred decorative orbs */
+  [class*="blur-"], [class*="blur\["] {
+    filter: blur(20px) !important; /* Cap blur at 20px on mobile */
+    opacity: 0.1 !important; /* Reduce opacity to make it less expensive to composite */
+  }
+
+  /* Specific fix for blanking: ensure everything has a minimum height and is visible */
+  section, div {
+     will-change: auto !important; /* Prevent over-allocation of GPU layers */
+  }
+
   /* FAQ Accordion - remove sliding animation but keep snapping open/close */
   .faq-answer,
   .faq-answer-inner,

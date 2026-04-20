@@ -4,34 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { X, Check, ArrowRight, Zap } from "lucide-react";
 
-function useScrollReveal(threshold = 0.1) {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0, rootMargin: "0px 0px 400px 0px" }
-    );
-    
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return { ref, isVisible };
-}
-
 export default function PASSection() {
-  const sectionRef = useScrollReveal(0.1);
-
   const painPoints = [
     "Visitors bounce in seconds without contacting you",
     "Your site looks outdated compared to competitors",
