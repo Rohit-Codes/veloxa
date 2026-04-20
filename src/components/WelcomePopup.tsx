@@ -33,7 +33,7 @@ export default function WelcomePopup() {
 
     window.addEventListener("open-welcome-popup", handleOpenPopup);
 
-    const dismissed = localStorage.getItem("veloxa_popup_dismissed");
+    const dismissed = localStorage.getItem("veloxa_popup_dismissed_v2");
     if (!dismissed) {
       setIsDismissed(false);
       // Show popup after 10 seconds
@@ -82,7 +82,7 @@ export default function WelcomePopup() {
 
   const closePopup = () => {
     setIsVisible(false);
-    localStorage.setItem("veloxa_popup_dismissed", "true");
+    localStorage.setItem("veloxa_popup_dismissed_v2", "true");
     setTimeout(() => setIsDismissed(true), 500); // Wait for animation to finish
   };
 
